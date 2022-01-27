@@ -10,6 +10,7 @@ TEST_CASE( "Const. 1", "[bitset]" ) {
     Bitset b;  
     REQUIRE(b.size() == 8);
     REQUIRE(b.good());
+    REQUIRE(b.asString() == "00000000");
 }
 
 TEST_CASE( "Const. 2", "[bitset]" ) {
@@ -58,7 +59,8 @@ TEST_CASE( "Valid", "[bitset]" ) {
 
 TEST_CASE( "Set", "[bitset]" ) {
 
-    Bitset b;  
+    Bitset b;
+    REQUIRE(b.size() == 8);  
     b.set(6);
     REQUIRE(b.good());
     REQUIRE(b.asString() == "01000000");
@@ -79,25 +81,50 @@ TEST_CASE( "Reset", "[bitset]" ) {
     REQUIRE(b.good());
 }
 
+
 TEST_CASE( "Reset Invalid", "[bitset]" ) {
 
     Bitset b;  
-    REQUIRE(b.size() == 8);
-    REQUIRE(b.good());
+    b.reset(-1);
+    REQUIRE(!b.good());
 }
 
 TEST_CASE( "Toggle", "[bitset]" ) {
 
-    Bitset b;  
-    REQUIRE(b.size() == 8);
-    REQUIRE(b.good());
+    Bitset b("00011000");  
+    b.toggle(6);
+    b.toggle(4);
+    REQUIRE(b.asString() == "01001000");
+}
+
+TEST_CASE( "Toggle Invalid Set", "[bitset]" ) {
+
+    Bitset b("12332111");  
+    b.toggle(6);
+    b.toggle(4);
+    REQUIRE(b.asString() == "12332111");
+    REQUIRE(!b.good());
+}
+
+TEST_CASE( "Toggle Invalid", "[bitset]" ) {
+
+    Bitset b("00011000");  
+    b.toggle(11);
+    REQUIRE(!b.good());
 }
 
 TEST_CASE( "Test", "[bitset]" ) {
 
-    Bitset b;  
-    REQUIRE(b.size() == 8);
-    REQUIRE(b.good());
+    Bitset b("10101010");
+    REQUIRE(b.test(7));
+    REQUIRE(!b.test(6));
+}
+
+TEST_CASE( "Test Invalid", "[bitset]" ) {
+
+    Bitset b("10101010");
+    REQUIRE(!b.test(-1));
+    REQUIRE(!b.good());
 }
 
 TEST_CASE( "asString", "[bitset]" ) {
