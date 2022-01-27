@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/parallels/ECE 302/projects/project1/p1_starter_code/bitset.cpp" "/home/parallels/ECE 302/projects/project1/p1_starter_code/CMakeFiles/bitset-tests.dir/bitset.cpp.o"
-  "/home/parallels/ECE 302/projects/project1/p1_starter_code/bitset_test.cpp" "/home/parallels/ECE 302/projects/project1/p1_starter_code/CMakeFiles/bitset-tests.dir/bitset_test.cpp.o"
+  "/home/parallels/302Github/ECE302/project1/bitset.cpp" "/home/parallels/302Github/ECE302/project1/CMakeFiles/bitset-tests.dir/bitset.cpp.o"
+  "/home/parallels/302Github/ECE302/project1/bitset_test.cpp" "/home/parallels/302Github/ECE302/project1/CMakeFiles/bitset-tests.dir/bitset_test.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

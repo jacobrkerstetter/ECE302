@@ -1,5 +1,5 @@
-/home/parallels/ECE 302/projects/project1/p1_starter_code/CMakeFiles/rebuild_cache.dir
-/home/parallels/ECE 302/projects/project1/p1_starter_code/CMakeFiles/edit_cache.dir
-/home/parallels/ECE 302/projects/project1/p1_starter_code/CMakeFiles/test.dir
-/home/parallels/ECE 302/projects/project1/p1_starter_code/CMakeFiles/submission.dir
-/home/parallels/ECE 302/projects/project1/p1_starter_code/CMakeFiles/bitset-tests.dir
+/home/parallels/302Github/ECE302/project1/CMakeFiles/rebuild_cache.dir
+/home/parallels/302Github/ECE302/project1/CMakeFiles/edit_cache.dir
+/home/parallels/302Github/ECE302/project1/CMakeFiles/test.dir
+/home/parallels/302Github/ECE302/project1/CMakeFiles/submission.dir
+/home/parallels/302Github/ECE302/project1/CMakeFiles/bitset-tests.dir

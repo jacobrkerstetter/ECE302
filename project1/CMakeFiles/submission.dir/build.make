@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/parallels/ECE 302/projects/project1/p1_starter_code"
+CMAKE_SOURCE_DIR = /home/parallels/302Github/ECE302/project1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/parallels/ECE 302/projects/project1/p1_starter_code"
+CMAKE_BINARY_DIR = /home/parallels/302Github/ECE302/project1
 
 # Utility rule file for submission.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = "/home/parallels/ECE 302/projects/project1/p1_starter_code"
 include CMakeFiles/submission.dir/progress.make
 
 CMakeFiles/submission:
-	/usr/bin/cmake -E tar cfv /home/parallels/ECE\ 302/projects/project1/p1_starter_code/p1_bitvector.zip --format=zip bitset_test.cpp bitset.hpp bitset.cpp
+	/usr/bin/cmake -E tar cfv /home/parallels/302Github/ECE302/project1/p1_bitvector.zip --format=zip bitset_test.cpp bitset.hpp bitset.cpp
 
 submission: CMakeFiles/submission
 submission: CMakeFiles/submission.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/submission.dir/clean:
 .PHONY : CMakeFiles/submission.dir/clean
 
 CMakeFiles/submission.dir/depend:
-	cd "/home/parallels/ECE 302/projects/project1/p1_starter_code" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/parallels/ECE 302/projects/project1/p1_starter_code" "/home/parallels/ECE 302/projects/project1/p1_starter_code" "/home/parallels/ECE 302/projects/project1/p1_starter_code" "/home/parallels/ECE 302/projects/project1/p1_starter_code" "/home/parallels/ECE 302/projects/project1/p1_starter_code/CMakeFiles/submission.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/parallels/302Github/ECE302/project1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/parallels/302Github/ECE302/project1 /home/parallels/302Github/ECE302/project1 /home/parallels/302Github/ECE302/project1 /home/parallels/302Github/ECE302/project1 /home/parallels/302Github/ECE302/project1/CMakeFiles/submission.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/submission.dir/depend
 

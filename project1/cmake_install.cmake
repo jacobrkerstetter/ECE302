@@ -1,4 +1,4 @@
-# Install script for directory: /home/parallels/ECE 302/projects/project1/p1_starter_code
+# Install script for directory: /home/parallels/302Github/ECE302/project1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/parallels/ECE 302/projects/project1/p1_starter_code/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/parallels/302Github/ECE302/project1/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -6,23 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/home/parallels/ECE 302/projects/project1/p1_starter_code/bitset.cpp
+/home/parallels/302Github/ECE302/project1/bitset.cpp
 bitset.hpp
-/home/parallels/ECE 302/projects/project1/p1_starter_code/bitset.hpp
+/home/parallels/302Github/ECE302/project1/bitset.hpp
+iostream
+-
 
-/home/parallels/ECE 302/projects/project1/p1_starter_code/bitset.hpp
+/home/parallels/302Github/ECE302/project1/bitset.hpp
 string
 -
 
-/home/parallels/ECE 302/projects/project1/p1_starter_code/bitset_test.cpp
+/home/parallels/302Github/ECE302/project1/bitset_test.cpp
 catch.hpp
-/home/parallels/ECE 302/projects/project1/p1_starter_code/catch.hpp
+/home/parallels/302Github/ECE302/project1/catch.hpp
 bitset.hpp
-/home/parallels/ECE 302/projects/project1/p1_starter_code/bitset.hpp
+/home/parallels/302Github/ECE302/project1/bitset.hpp
 string
 -
 
-/home/parallels/ECE 302/projects/project1/p1_starter_code/catch.hpp
+/home/parallels/302Github/ECE302/project1/catch.hpp
 sstream
 -
 stdexcept
@@ -196,7 +198,7 @@ algorithm
 map
 -
 Foundation/Foundation.h
-/home/parallels/ECE 302/projects/project1/p1_starter_code/Foundation/Foundation.h
+/home/parallels/302Github/ECE302/project1/Foundation/Foundation.h
 ostream
 -
 stdexcept

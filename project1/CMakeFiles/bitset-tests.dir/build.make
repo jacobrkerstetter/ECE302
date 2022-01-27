@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/parallels/ECE 302/projects/project1/p1_starter_code"
+CMAKE_SOURCE_DIR = /home/parallels/302Github/ECE302/project1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/parallels/ECE 302/projects/project1/p1_starter_code"
+CMAKE_BINARY_DIR = /home/parallels/302Github/ECE302/project1
 
 # Include any dependencies generated for this target.
 include CMakeFiles/bitset-tests.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/bitset-tests.dir/flags.make
 
 CMakeFiles/bitset-tests.dir/bitset_test.cpp.o: CMakeFiles/bitset-tests.dir/flags.make
 CMakeFiles/bitset-tests.dir/bitset_test.cpp.o: bitset_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/parallels/ECE 302/projects/project1/p1_starter_code/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/bitset-tests.dir/bitset_test.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bitset-tests.dir/bitset_test.cpp.o -c "/home/parallels/ECE 302/projects/project1/p1_starter_code/bitset_test.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/302Github/ECE302/project1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/bitset-tests.dir/bitset_test.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bitset-tests.dir/bitset_test.cpp.o -c /home/parallels/302Github/ECE302/project1/bitset_test.cpp
 
 CMakeFiles/bitset-tests.dir/bitset_test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bitset-tests.dir/bitset_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/parallels/ECE 302/projects/project1/p1_starter_code/bitset_test.cpp" > CMakeFiles/bitset-tests.dir/bitset_test.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/302Github/ECE302/project1/bitset_test.cpp > CMakeFiles/bitset-tests.dir/bitset_test.cpp.i
 
 CMakeFiles/bitset-tests.dir/bitset_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bitset-tests.dir/bitset_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/parallels/ECE 302/projects/project1/p1_starter_code/bitset_test.cpp" -o CMakeFiles/bitset-tests.dir/bitset_test.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/302Github/ECE302/project1/bitset_test.cpp -o CMakeFiles/bitset-tests.dir/bitset_test.cpp.s
 
 CMakeFiles/bitset-tests.dir/bitset.cpp.o: CMakeFiles/bitset-tests.dir/flags.make
 CMakeFiles/bitset-tests.dir/bitset.cpp.o: bitset.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/parallels/ECE 302/projects/project1/p1_starter_code/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/bitset-tests.dir/bitset.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bitset-tests.dir/bitset.cpp.o -c "/home/parallels/ECE 302/projects/project1/p1_starter_code/bitset.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/302Github/ECE302/project1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/bitset-tests.dir/bitset.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bitset-tests.dir/bitset.cpp.o -c /home/parallels/302Github/ECE302/project1/bitset.cpp
 
 CMakeFiles/bitset-tests.dir/bitset.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bitset-tests.dir/bitset.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/parallels/ECE 302/projects/project1/p1_starter_code/bitset.cpp" > CMakeFiles/bitset-tests.dir/bitset.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/302Github/ECE302/project1/bitset.cpp > CMakeFiles/bitset-tests.dir/bitset.cpp.i
 
 CMakeFiles/bitset-tests.dir/bitset.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bitset-tests.dir/bitset.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/parallels/ECE 302/projects/project1/p1_starter_code/bitset.cpp" -o CMakeFiles/bitset-tests.dir/bitset.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/302Github/ECE302/project1/bitset.cpp -o CMakeFiles/bitset-tests.dir/bitset.cpp.s
 
 # Object files for target bitset-tests
 bitset__tests_OBJECTS = \
@@ -95,7 +95,7 @@ bitset-tests: CMakeFiles/bitset-tests.dir/bitset_test.cpp.o
 bitset-tests: CMakeFiles/bitset-tests.dir/bitset.cpp.o
 bitset-tests: CMakeFiles/bitset-tests.dir/build.make
 bitset-tests: CMakeFiles/bitset-tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/parallels/ECE 302/projects/project1/p1_starter_code/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable bitset-tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/parallels/302Github/ECE302/project1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable bitset-tests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bitset-tests.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +108,6 @@ CMakeFiles/bitset-tests.dir/clean:
 .PHONY : CMakeFiles/bitset-tests.dir/clean
 
 CMakeFiles/bitset-tests.dir/depend:
-	cd "/home/parallels/ECE 302/projects/project1/p1_starter_code" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/parallels/ECE 302/projects/project1/p1_starter_code" "/home/parallels/ECE 302/projects/project1/p1_starter_code" "/home/parallels/ECE 302/projects/project1/p1_starter_code" "/home/parallels/ECE 302/projects/project1/p1_starter_code" "/home/parallels/ECE 302/projects/project1/p1_starter_code/CMakeFiles/bitset-tests.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/parallels/302Github/ECE302/project1 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/parallels/302Github/ECE302/project1 /home/parallels/302Github/ECE302/project1 /home/parallels/302Github/ECE302/project1 /home/parallels/302Github/ECE302/project1 /home/parallels/302Github/ECE302/project1/CMakeFiles/bitset-tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/bitset-tests.dir/depend
 

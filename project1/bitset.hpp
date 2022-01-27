@@ -42,7 +42,7 @@ public:
   std::string asString() const;
 
 private:
-  u_int8_t* bitset;
+  uint8_t* bitset = nullptr;
   intmax_t setSize;
   bool valid;
 };
