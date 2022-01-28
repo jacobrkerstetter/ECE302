@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code"
+CMAKE_SOURCE_DIR = /home/parallels/302Github/ECE302/homework2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code"
+CMAKE_BINARY_DIR = /home/parallels/302Github/ECE302/homework2
 
 # Utility rule file for submission.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = "/home/parallels/ECE 302/homework/problem02/bag_interface_sta
 include CMakeFiles/submission.dir/progress.make
 
 CMakeFiles/submission:
-	/usr/bin/cmake -E tar cfv /home/parallels/ECE\ 302/homework/problem02/bag_interface_starter_code/hw2_bag_interface.zip --format=zip bag_tests.cpp abstract_bag.hpp bag_simple.hpp bag_simple.tpp
+	/usr/bin/cmake -E tar cfv /home/parallels/302Github/ECE302/homework2/hw2_bag_interface.zip --format=zip bag_tests.cpp abstract_bag.hpp bag_simple.hpp bag_simple.tpp
 
 submission: CMakeFiles/submission
 submission: CMakeFiles/submission.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/submission.dir/clean:
 .PHONY : CMakeFiles/submission.dir/clean
 
 CMakeFiles/submission.dir/depend:
-	cd "/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code" "/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code" "/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code" "/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code" "/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/CMakeFiles/submission.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/parallels/302Github/ECE302/homework2 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/parallels/302Github/ECE302/homework2 /home/parallels/302Github/ECE302/homework2 /home/parallels/302Github/ECE302/homework2 /home/parallels/302Github/ECE302/homework2 /home/parallels/302Github/ECE302/homework2/CMakeFiles/submission.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/submission.dir/depend
 

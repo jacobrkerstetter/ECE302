@@ -1,5 +1,5 @@
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/CMakeFiles/rebuild_cache.dir
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/CMakeFiles/edit_cache.dir
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/CMakeFiles/test.dir
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/CMakeFiles/submission.dir
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/CMakeFiles/bag-tests.dir
+/home/parallels/302Github/ECE302/homework2/CMakeFiles/rebuild_cache.dir
+/home/parallels/302Github/ECE302/homework2/CMakeFiles/edit_cache.dir
+/home/parallels/302Github/ECE302/homework2/CMakeFiles/test.dir
+/home/parallels/302Github/ECE302/homework2/CMakeFiles/submission.dir
+/home/parallels/302Github/ECE302/homework2/CMakeFiles/bag-tests.dir

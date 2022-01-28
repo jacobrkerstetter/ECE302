@@ -6,29 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/abstract_bag.hpp
+/home/parallels/302Github/ECE302/homework2/abstract_bag.hpp
 cstdlib
 -
 
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/bag_simple.hpp
+/home/parallels/302Github/ECE302/homework2/bag_simple.hpp
 abstract_bag.hpp
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/abstract_bag.hpp
+/home/parallels/302Github/ECE302/homework2/abstract_bag.hpp
 bag_simple.tpp
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/bag_simple.tpp
+/home/parallels/302Github/ECE302/homework2/bag_simple.tpp
 
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/bag_simple.tpp
+/home/parallels/302Github/ECE302/homework2/bag_simple.tpp
 bag_simple.hpp
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/bag_simple.hpp
+/home/parallels/302Github/ECE302/homework2/bag_simple.hpp
 iostream
 -
 
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/bag_tests.cpp
+/home/parallels/302Github/ECE302/homework2/bag_tests.cpp
 catch.hpp
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/catch.hpp
+/home/parallels/302Github/ECE302/homework2/catch.hpp
 bag_simple.hpp
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/bag_simple.hpp
+/home/parallels/302Github/ECE302/homework2/bag_simple.hpp
 
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/catch.hpp
+/home/parallels/302Github/ECE302/homework2/catch.hpp
 sstream
 -
 stdexcept
@@ -202,7 +202,7 @@ algorithm
 map
 -
 Foundation/Foundation.h
-/home/parallels/ECE 302/homework/problem02/bag_interface_starter_code/Foundation/Foundation.h
+/home/parallels/302Github/ECE302/homework2/Foundation/Foundation.h
 ostream
 -
 stdexcept
