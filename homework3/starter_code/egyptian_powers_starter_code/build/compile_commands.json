@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/parallels/302Github/ECE302/homework3/starter_code/egyptian_powers_starter_code/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g   -std=gnu++11 -o CMakeFiles/fancyPower-tests.dir/fancyPower_tests.cpp.o -c /home/parallels/302Github/ECE302/homework3/starter_code/egyptian_powers_starter_code/fancyPower_tests.cpp",
+  "file": "/home/parallels/302Github/ECE302/homework3/starter_code/egyptian_powers_starter_code/fancyPower_tests.cpp"
+}
+]

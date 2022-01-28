@@ -1,0 +1,5 @@
+/home/parallels/302Github/ECE302/homework3/starter_code/egyptian_powers_starter_code/build/CMakeFiles/rebuild_cache.dir
+/home/parallels/302Github/ECE302/homework3/starter_code/egyptian_powers_starter_code/build/CMakeFiles/edit_cache.dir
+/home/parallels/302Github/ECE302/homework3/starter_code/egyptian_powers_starter_code/build/CMakeFiles/test.dir
+/home/parallels/302Github/ECE302/homework3/starter_code/egyptian_powers_starter_code/build/CMakeFiles/submission.dir
+/home/parallels/302Github/ECE302/homework3/starter_code/egyptian_powers_starter_code/build/CMakeFiles/fancyPower-tests.dir
