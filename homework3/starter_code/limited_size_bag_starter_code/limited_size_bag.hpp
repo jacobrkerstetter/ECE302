@@ -41,8 +41,9 @@ public:
   bool contains(const T& item) const;
 
 private:
+  T bagArray[100];
+  std::size_t size;
 
-  // TODO
 };
 
 #include "limited_size_bag.tpp"
