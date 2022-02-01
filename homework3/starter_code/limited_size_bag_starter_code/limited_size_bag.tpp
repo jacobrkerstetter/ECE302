@@ -24,7 +24,7 @@ bool LimitedSizeBag<T>::add(const T& item)
   if(size >= MAXSIZE)
     return false;
 
-  data[size++] = entry;
+  bagArray[size++] = item;
   
   return true;
 }
@@ -36,7 +36,7 @@ bool LimitedSizeBag<T>::remove(const T& item)
 
   std::size_t idx = 0;
   for(std::size_t i = 0; i < size; ++i) {
-    if(data[i] == entry) break;
+    if(bagArray[i] == item) break;
     ++idx;
   }
 
@@ -44,7 +44,7 @@ bool LimitedSizeBag<T>::remove(const T& item)
 
   --size;
   for(std::size_t i = idx; i < size; ++i){
-    data[i] = data[i+1];
+    bagArray[i] = bagArray[i+1];
   }
 
   return true;
@@ -65,7 +65,7 @@ std::size_t LimitedSizeBag<T>::getCurrentSize() const
 template<typename T>
 bool LimitedSizeBag<T>::contains(const T& item) const
 {  
-  return getFrequencyOf(entry) != 0;
+  return getFrequencyOf(item) != 0;
 }
 
 template<typename T>
@@ -79,7 +79,7 @@ std::size_t LimitedSizeBag<T>::getFrequencyOf(const T & item) const
   std::size_t freq = 0;
 
   for(std::size_t i = 0; i < size; ++i){
-    if(data[i] == entry) ++freq;
+    if(bagArray[i] == item) ++freq;
   }
   
   return freq;

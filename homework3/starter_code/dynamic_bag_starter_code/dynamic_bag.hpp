@@ -34,6 +34,9 @@ class DynamicBag: public AbstractBag<T>
     // clear the bag contents
     void clear();
 
+    // upsize the array
+    void upsize();
+
     // count how many time item occurs in bag
     std::size_t getFrequencyOf(const T & item) const;
 
