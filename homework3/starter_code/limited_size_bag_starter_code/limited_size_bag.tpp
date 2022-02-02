@@ -6,7 +6,7 @@ LimitedSizeBag<T>::LimitedSizeBag() : size(0) {}
 template<typename T>
 LimitedSizeBag<T>::LimitedSizeBag(const LimitedSizeBag& x) {
   for (int i = 0; i < x.size; i++)
-    bagArray[i] = x[i];
+    bagArray[i] = x.bagArray[i];
 }
     
 template<typename T>
@@ -15,7 +15,10 @@ LimitedSizeBag<T>::~LimitedSizeBag() {}
 template<typename T>
 LimitedSizeBag<T>& LimitedSizeBag<T>::operator=(LimitedSizeBag<T>& x)
 {  
-  return *this; // SHALLOW OR DEEP ?? 
+  for (int i = 0; i < x.size; i++)
+    bagArray[i] = x.bagArray[i];
+
+  return *this;
 }
 
 template<typename T>
@@ -59,7 +62,7 @@ bool LimitedSizeBag<T>::isEmpty() const
 template<typename T>
 std::size_t LimitedSizeBag<T>::getCurrentSize() const
 {
-  return ;
+  return size;
 }
 
 template<typename T>

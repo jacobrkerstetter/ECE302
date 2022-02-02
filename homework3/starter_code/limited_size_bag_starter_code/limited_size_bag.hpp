@@ -40,8 +40,10 @@ public:
   // check if item is in the bag
   bool contains(const T& item) const;
 
+  static const int MAXSIZE = 100;
+
 private:
-  T bagArray[100];
+  T bagArray[MAXSIZE];
   std::size_t size;
 
 };
