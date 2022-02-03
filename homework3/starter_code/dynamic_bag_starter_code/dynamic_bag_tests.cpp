@@ -28,6 +28,27 @@ TEST_CASE("Add/Upsize", "[DynamicBag]"){
   REQUIRE(b.add(15));
 }
 
+TEST_CASE("Copy Constructor", "[DynamicBag]"){
+  DynamicBag<int> b;
+
+  for (int i = 0; i < 20; i++)
+    b.add(5);
+
+  DynamicBag<int> x(b);
+  REQUIRE(x.getCurrentSize() == 20);
+}
+
+TEST_CASE("Assignment Operator", "[DynamicBag]"){
+  DynamicBag<int> b, x;
+
+  for (int i = 0; i < 20; i++)
+    b.add(0);
+
+  x = b;
+
+  REQUIRE(x.getCurrentSize() == 20);
+}
+
 TEST_CASE("Remove/Size", "[DynamicBag]"){
   DynamicBag<int> b;
 

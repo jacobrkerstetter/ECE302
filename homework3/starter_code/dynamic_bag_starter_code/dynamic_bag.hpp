@@ -43,6 +43,9 @@ class DynamicBag: public AbstractBag<T>
     // check if item is in the bag
     bool contains(const T& item) const;
 
+    // public method to return a pointer to the array
+    T* getBagPointer() const;
+
   private:
     T* bagArray;
     std::size_t size;

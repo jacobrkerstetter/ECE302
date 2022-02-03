@@ -4,9 +4,9 @@ template<typename T>
 LimitedSizeBag<T>::LimitedSizeBag() : size(0) {}
 
 template<typename T>
-LimitedSizeBag<T>::LimitedSizeBag(const LimitedSizeBag& x) {
+LimitedSizeBag<T>::LimitedSizeBag(const LimitedSizeBag& x) : LimitedSizeBag() {
   for (int i = 0; i < x.size; i++)
-    bagArray[i] = x.bagArray[i];
+    this->add(x.getElement(i));
 }
     
 template<typename T>
@@ -16,7 +16,7 @@ template<typename T>
 LimitedSizeBag<T>& LimitedSizeBag<T>::operator=(LimitedSizeBag<T>& x)
 {  
   for (int i = 0; i < x.size; i++)
-    bagArray[i] = x.bagArray[i];
+    this->add(x.getElement(i));
 
   return *this;
 }
@@ -87,3 +87,8 @@ std::size_t LimitedSizeBag<T>::getFrequencyOf(const T & item) const
   
   return freq;
 };
+
+template<typename T>
+T LimitedSizeBag<T>::getElement(int i) const {
+  return bagArray[i];
+}

@@ -26,8 +26,23 @@ static void convertToLowerCase(string & value)
 void FindPalindrome::recursiveFindPalindromes(vector<string>
         candidateStringVector, vector<string> currentStringVector)
 {
-	// TODO need to implement this recursive function!
+	// base case: when currentStringVector is empty
+	if (currentStringVector.empty())
+		return;
+	
+	recursiveFindPalindromes(candidateStringVector.push_back(currentStringVector.back()), currentStringVector.pop_back());
+
+	string testWord;
+
+	for (int i = 0; i < candidateStringVector.size(); i++)
+		testWord += candidateStringVector[i];
+	if (isPalindrome(testWord))
+		numPalin++;
+
 	return;
+
+
+	// current: remaining words that could be added to candidate
 }
 
 // private function to determine if a string is a palindrome (given, you
@@ -49,31 +64,26 @@ bool FindPalindrome::isPalindrome(string currentString) const
 
 //------------------- PUBLIC CLASS METHODS -------------------------------------
 
-FindPalindrome::FindPalindrome()
-{
-	// TODO need to implement this...
-}
+FindPalindrome::FindPalindrome() : numPalin(0) {}
 
-FindPalindrome::~FindPalindrome()
-{
-	// TODO need to implement this...
-}
+FindPalindrome::~FindPalindrome() {}
 
 int FindPalindrome::number() const
 {
-	// TODO need to implement this...
-	return 10;
+	return numPalin;
 }
 
 void FindPalindrome::clear()
 {
-	// TODO need to implement this...
+	words.clear();
+	numPalin = 0;
 }
 
 bool FindPalindrome::cutTest1(const vector<string> & stringVector)
 {
-	// TODO need to implement this...
-	return false;
+	string temp(stringVector.begin(), stringVector.end());
+	
+	return isPalindrome(temp);
 }
 
 bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
@@ -84,14 +94,15 @@ bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
 }
 
 bool FindPalindrome::add(const string & value)
-{
-	// TODO need to implement this...
-	return false;
+{	
+	
 }
 
 bool FindPalindrome::add(const vector<string> & stringVector)
 {
-	// TODO need to implement this...
+	// check each word in the vector for validity
+	// if the words are valid, set words vector equal to stringVector
+	// call recursive shit
 	return false;
 }
 

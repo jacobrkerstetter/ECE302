@@ -38,6 +38,27 @@ TEST_CASE("Add Over Limit", "[LimitedSizeBag]"){
   REQUIRE(b.getCurrentSize() == 100);
 }
 
+TEST_CASE("Copy Constructor", "[LimitedSizeBag]"){
+  LimitedSizeBag<int> b;
+
+  for (int i = 0; i < 20; i++)
+    b.add(5);
+
+  LimitedSizeBag<int> x(b);
+  REQUIRE(x.getCurrentSize() == 20);
+}
+
+TEST_CASE("Assignment Operator", "[LimitedSizeBag]"){
+  LimitedSizeBag<int> b, x;
+
+  for (int i = 0; i < 20; i++)
+    b.add(0);
+
+  x = b;
+
+  REQUIRE(x.getCurrentSize() == 20);
+}
+
 TEST_CASE("Remove/Size", "[LimitedSizeBag]"){
   LimitedSizeBag<int> b;
 

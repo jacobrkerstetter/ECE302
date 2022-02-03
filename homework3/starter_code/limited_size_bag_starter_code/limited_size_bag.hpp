@@ -40,6 +40,9 @@ public:
   // check if item is in the bag
   bool contains(const T& item) const;
 
+  // public method to return a pointer to the array
+  T getElement(int i) const;
+
   static const int MAXSIZE = 100;
 
 private:

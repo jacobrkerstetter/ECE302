@@ -14,7 +14,7 @@ DynamicBag<T>::DynamicBag(const DynamicBag& x) {
   MAXSIZE = x.MAXSIZE;
 
   for (int i = 0; i < x.size; i++)
-    bagArray[i] = x.bagArray[i];
+    bagArray[i] = *(x.getBagPointer() + i);
 }
     
 template<typename T>
@@ -26,7 +26,7 @@ template<typename T>
 DynamicBag<T>& DynamicBag<T>::operator=(DynamicBag<T>& x)
 {  
   for (int i = 0; i < x.size; i++)
-    bagArray[i] = x.bagArray[i];
+    this->add(*(x.getBagPointer() + i));
 
   return *this;
 }
@@ -107,3 +107,8 @@ std::size_t DynamicBag<T>::getFrequencyOf(const T & item) const
   
   return freq;
 };
+
+template<typename T>
+T* DynamicBag<T>::getBagPointer() const {
+  return bagArray;
+}
