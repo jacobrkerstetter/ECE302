@@ -1,13 +1,18 @@
 #include "array_list.hpp"
 
 template <typename T>
-ArrayList<T>::ArrayList() {}
+ArrayList<T>::ArrayList() {
+  items = new T[MAXSIZE];
+  size = 0;
+}
 
 template <typename T>
-ArrayList<T>::~ArrayList() {}
+ArrayList<T>::~ArrayList() {
+  delete [] items;
+}
 
 template <typename T>
-ArrayList<T>::ArrayList(const ArrayList & rhs){}
+ArrayList<T>::ArrayList(const ArrayList & rhs) {}
 
 template <typename T>
 ArrayList<T> & ArrayList<T>::operator=(const ArrayList & rhs){
@@ -16,12 +21,12 @@ ArrayList<T> & ArrayList<T>::operator=(const ArrayList & rhs){
 
 template <typename T>
 bool ArrayList<T>::isEmpty() const{
-  return false;
+  return size == 0;
 }
 
 template <typename T>
 std::size_t ArrayList<T>::getLength() const{
-  return 0;
+  return size;
 }
 
 template <typename T>
@@ -35,11 +40,13 @@ bool ArrayList<T>::remove(std::size_t position){
 }
 
 template <typename T>
-void ArrayList<T>::clear() {}
+void ArrayList<T>::clear() {
+  size = 0;
+}
 
 template <typename T>
 T ArrayList<T>::getEntry(std::size_t position) const {
-  return T();
+  return items[position];
 }
 
 template <typename T>

@@ -1,15 +1,12 @@
 #include "linked_list.hpp"
 
 template <typename T>
-LinkedList<T>::LinkedList()
-{
-  //TODO
-}
+LinkedList<T>::LinkedList() : count(0) {}
 
 template <typename T>
 LinkedList<T>::~LinkedList()
 {
-  //TODO
+  delete head;
 }
 
 template <typename T>
@@ -34,15 +31,13 @@ LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& x)
 template <typename T>
 bool LinkedList<T>::isEmpty() const
 {
-  //TODO
-  return true;
+  return count == 0;
 }
 
 template <typename T>
 std::size_t LinkedList<T>::getLength() const
 {
-  //TODO
-  return 0;
+  return count;
 }
 
 template <typename T>
@@ -62,7 +57,7 @@ bool LinkedList<T>::remove(std::size_t position)
 template <typename T>
 void LinkedList<T>::clear()
 {
-  //TODO
+  // loop through and delete all the nodes, set head = nullptr
 }
 
 template <typename T>

@@ -18,7 +18,7 @@ public:
   ArrayList(const ArrayList & rhs);
 
   // copy assignment
-  ArrayList & operator=(const ArrayList & rhs);
+  ArrayList &operator=(const ArrayList & rhs);
   
   // determine if a list is empty
   bool isEmpty() const;
@@ -43,7 +43,9 @@ public:
 
 private:
 
-  // TODO
+  T* items;
+  int count;
+  int MAXSIZE = 10;
   
 };
 

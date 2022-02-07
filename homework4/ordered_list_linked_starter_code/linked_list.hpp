@@ -47,7 +47,8 @@ public:
 
 private:
 
-  //TODO
+  Node* head;
+  int count; 
   
 };
 
