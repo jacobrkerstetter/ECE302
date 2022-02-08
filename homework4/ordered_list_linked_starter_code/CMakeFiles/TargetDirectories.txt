@@ -1,0 +1,5 @@
+/home/parallels/302Github/ECE302/homework4/ordered_list_linked_starter_code/CMakeFiles/rebuild_cache.dir
+/home/parallels/302Github/ECE302/homework4/ordered_list_linked_starter_code/CMakeFiles/edit_cache.dir
+/home/parallels/302Github/ECE302/homework4/ordered_list_linked_starter_code/CMakeFiles/test.dir
+/home/parallels/302Github/ECE302/homework4/ordered_list_linked_starter_code/CMakeFiles/submission.dir
+/home/parallels/302Github/ECE302/homework4/ordered_list_linked_starter_code/CMakeFiles/test_linked_list.dir

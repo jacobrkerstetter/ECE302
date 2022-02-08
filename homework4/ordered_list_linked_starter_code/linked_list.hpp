@@ -4,6 +4,8 @@
 #include "abstract_list.hpp"
 #include "Node.hpp"
 
+#include <cstdlib>
+
 template <typename T>
 class LinkedList: public AbstractList<T>
 {
@@ -45,9 +47,12 @@ public:
   // set the value of the item at position using 1-based indexing
   void setEntry(std::size_t position, const T& newValue);
 
+  // print list test method
+  void printList();
+
 private:
 
-  Node* head;
+  Node<T>* head;
   int count; 
   
 };
