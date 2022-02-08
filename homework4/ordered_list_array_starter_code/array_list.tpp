@@ -21,27 +21,33 @@ ArrayList<T> & ArrayList<T>::operator=(const ArrayList & rhs){
 
 template <typename T>
 bool ArrayList<T>::isEmpty() const{
-  return size == 0;
+  return count == 0;
 }
 
 template <typename T>
 std::size_t ArrayList<T>::getLength() const{
-  return size;
+  return MAXSIZE;
 }
 
 template <typename T>
 bool ArrayList<T>::insert(std::size_t position, const T& item){
-  return false;
+  if (position-1 >= MAXSIZE)
+    upsize()
+
+  items[position-1] = item;
+  return true;
 }
 
 template <typename T>
 bool ArrayList<T>::remove(std::size_t position){
-  return false;
+  
 }
 
 template <typename T>
 void ArrayList<T>::clear() {
-  size = 0;
+  count = 0;
+  for (int i = 0; i < size; i++)
+    items[i] = 0;
 }
 
 template <typename T>

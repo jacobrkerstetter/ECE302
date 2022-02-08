@@ -43,8 +43,10 @@ std::size_t LinkedList<T>::getLength() const
 template <typename T>
 bool LinkedList<T>::insert(std::size_t position, const T& item)
 {
-  //TODO
-  return true;
+  int i = 1;
+  while (i < position) {
+    if ()
+  }
 }
 
 template <typename T>

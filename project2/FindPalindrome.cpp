@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <locale> 
+#include <algorithm>
 #include "FindPalindrome.hpp"
 
 using namespace std;
@@ -30,7 +31,12 @@ void FindPalindrome::recursiveFindPalindromes(vector<string>
 	if (currentStringVector.empty())
 		return;
 	
-	recursiveFindPalindromes(candidateStringVector.push_back(currentStringVector.back()), currentStringVector.pop_back());
+	// edit the string vectors towards current string empty
+	candidateStringVector.push_back(currentStringVector[i]); // add the first element of the words vector to the candidate
+	currentStringVector.erase(currentStringVector.begin()); // remove the first element of the words vector
+	
+	// recurse
+	recursiveFindPalindromes(candidateStringVector, currentStringVector);
 
 	string testWord;
 
@@ -39,10 +45,7 @@ void FindPalindrome::recursiveFindPalindromes(vector<string>
 	if (isPalindrome(testWord))
 		numPalin++;
 
-	return;
-
-
-	// current: remaining words that could be added to candidate
+	// CONFUSION: swapping elements of vector to get a new ordering
 }
 
 // private function to determine if a string is a palindrome (given, you
@@ -81,9 +84,7 @@ void FindPalindrome::clear()
 
 bool FindPalindrome::cutTest1(const vector<string> & stringVector)
 {
-	string temp(stringVector.begin(), stringVector.end());
-	
-	return isPalindrome(temp);
+	return false;
 }
 
 bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
@@ -95,14 +96,27 @@ bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
 
 bool FindPalindrome::add(const string & value)
 {	
+	for (int i = 0; i < value.size(); i++)
+		if (!(value[i] >= 'a' && value[i] <= 'z') || (value[i] >= 'A' && value[i] <= 'Z'))
+			return false;
+
+	if (std::count(words.begin(), words.end(), value))
+		return false;
 	
+	words.push_back(value);
+
+	// reset number of palindromes in instance of class
+	numPalin = 0;
+
+	// create temp blank vector and recompute palindromes
+	vector<string> temp;
+	recursiveFindPalindromes(temp, words);
+
+	return true;
 }
 
 bool FindPalindrome::add(const vector<string> & stringVector)
 {
-	// check each word in the vector for validity
-	// if the words are valid, set words vector equal to stringVector
-	// call recursive shit
 	return false;
 }
 

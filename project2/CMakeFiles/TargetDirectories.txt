@@ -1,0 +1,6 @@
+/home/parallels/302Github/ECE302/project2/CMakeFiles/rebuild_cache.dir
+/home/parallels/302Github/ECE302/project2/CMakeFiles/submission.dir
+/home/parallels/302Github/ECE302/project2/CMakeFiles/edit_cache.dir
+/home/parallels/302Github/ECE302/project2/CMakeFiles/test.dir
+/home/parallels/302Github/ECE302/project2/CMakeFiles/FindPalindrome-main.dir
+/home/parallels/302Github/ECE302/project2/CMakeFiles/FindPalindrome-tests.dir
