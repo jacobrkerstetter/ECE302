@@ -51,6 +51,7 @@ void FindPalindrome::recursiveFindPalindromes(vector<string>
 		// recurse
 		recursiveFindPalindromes(candidateStringVector, currentStringVector);
 
+		// add elements back to vectors to restore the state
 		currentStringVector.insert(currentStringVector.begin(), candidateStringVector.back()); // add word back to current
 		candidateStringVector.pop_back(); // remove word from candidate
 	}
@@ -92,11 +93,28 @@ void FindPalindrome::clear()
 
 bool FindPalindrome::cutTest1(const vector<string> & stringVector)
 {
-	// count characters
-	// if odd number of characters: you can only have one char with odd amount
-	// if even number of char: you can have 0 with odd amount
+	int oddCount = 0;
+	int charCount = 0;
+	std::unordered_map<char, int> map;
+
+	for (int i = 0; i < stringVector.size(); i++)
+		for (int j = 0; j < stringVector[i].size(); j++) {
+			charCount++;
+			if (map.find(stringVector[i][j]) != map.end()) {
+				map.insert({stringVector[i][j], ++map[stringVector[i][j]]});
+				
+				if (map[stringVector[i][j]] % 2 != 0)
+					oddCount++;
+				else
+					oddCount--;
+			}
+			else {
+				map.insert({stringVector[i][j], 1});
+				oddCount++;
+			}
+		}
 	
-	return false;
+	return (oddCount == 0 && charCount % 2 == 0) || (oddCount == 1 && charCount % 2 != 0);
 }
 
 bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
