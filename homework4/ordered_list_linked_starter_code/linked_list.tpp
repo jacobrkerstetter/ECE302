@@ -6,6 +6,7 @@ LinkedList<T>::LinkedList() : count(0) {}
 template <typename T>
 LinkedList<T>::~LinkedList()
 {
+  this->clear();
   delete head;
 }
 
@@ -18,7 +19,7 @@ LinkedList<T>::LinkedList(const LinkedList<T>& x)
 template <typename T>
 void LinkedList<T>::swap(LinkedList<T>& x, LinkedList<T>& y)
 {
-  //TODO
+  // swap head pointers?
 }
 
 template <typename T>

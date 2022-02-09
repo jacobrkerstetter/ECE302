@@ -17,6 +17,8 @@ locale
 -
 algorithm
 -
+unordered_map
+-
 FindPalindrome.hpp
 /home/parallels/302Github/ECE302/project2/FindPalindrome.hpp
 

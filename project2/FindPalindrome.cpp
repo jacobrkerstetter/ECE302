@@ -3,6 +3,7 @@
 #include <iostream>
 #include <locale> 
 #include <algorithm>
+#include <unordered_map>
 #include "FindPalindrome.hpp"
 
 using namespace std;
@@ -28,24 +29,31 @@ void FindPalindrome::recursiveFindPalindromes(vector<string>
         candidateStringVector, vector<string> currentStringVector)
 {
 	// base case: when currentStringVector is empty
-	if (currentStringVector.empty())
+	if (currentStringVector.empty()) {
+		string testWord;
+
+		for (int i = 0; i < candidateStringVector.size(); i++)
+			testWord += candidateStringVector[i];
+		if (isPalindrome(testWord))
+			numPalin++;
+		
+		std::cout << testWord << std::endl;
 		return;
+	}
 	
-	// edit the string vectors towards current string empty
-	candidateStringVector.push_back(currentStringVector[i]); // add the first element of the words vector to the candidate
-	currentStringVector.erase(currentStringVector.begin()); // remove the first element of the words vector
-	
-	// recurse
-	recursiveFindPalindromes(candidateStringVector, currentStringVector);
+	// start for loop of recursion
+	for (int i = 0; i < currentStringVector.size(); i++) {
 
-	string testWord;
+		// edit the string vectors towards current string empty
+		candidateStringVector.push_back(currentStringVector[i]); // add the first element of the words vector to the candidate
+		currentStringVector.erase(currentStringVector.begin() + i); // remove the first element of the words vector
+		
+		// recurse
+		recursiveFindPalindromes(candidateStringVector, currentStringVector);
 
-	for (int i = 0; i < candidateStringVector.size(); i++)
-		testWord += candidateStringVector[i];
-	if (isPalindrome(testWord))
-		numPalin++;
-
-	// CONFUSION: swapping elements of vector to get a new ordering
+		currentStringVector.insert(currentStringVector.begin(), candidateStringVector.back()); // add word back to current
+		candidateStringVector.pop_back(); // remove word from candidate
+	}
 }
 
 // private function to determine if a string is a palindrome (given, you
@@ -84,6 +92,10 @@ void FindPalindrome::clear()
 
 bool FindPalindrome::cutTest1(const vector<string> & stringVector)
 {
+	// count characters
+	// if odd number of characters: you can only have one char with odd amount
+	// if even number of char: you can have 0 with odd amount
+	
 	return false;
 }
 
@@ -96,13 +108,16 @@ bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
 
 bool FindPalindrome::add(const string & value)
 {	
+	// check for in correct range of characters
 	for (int i = 0; i < value.size(); i++)
-		if (!(value[i] >= 'a' && value[i] <= 'z') || (value[i] >= 'A' && value[i] <= 'Z'))
+		if (!((value[i] >= 'a' && value[i] <= 'z') || (value[i] >= 'A' && value[i] <= 'Z')))
 			return false;
 
+	// if word is already in words vector, return false
 	if (std::count(words.begin(), words.end(), value))
 		return false;
 	
+	// else, add word
 	words.push_back(value);
 
 	// reset number of palindromes in instance of class
@@ -117,7 +132,27 @@ bool FindPalindrome::add(const string & value)
 
 bool FindPalindrome::add(const vector<string> & stringVector)
 {
-	return false;
+	// for each word in vector, check all the characters for range - check word for existance in words vector already
+	for (int i = 0; i < stringVector.size(); i++) {
+		std::string tempString = stringVector[i];
+		for (int j = 0; j < tempString.size(); j++)
+			if (!((tempString[j] >= 'a' && tempString[j] <= 'z') || (tempString[j] >= 'A' && tempString[j] <= 'Z')))
+				return false;
+
+		if (std::count(words.begin(), words.end(), tempString)) 
+			return false;
+	
+		words.push_back(tempString);
+	}
+
+	// reset number of palindromes in instance of class
+	numPalin = 0;
+
+	// create temp blank vector and recompute palindromes
+	vector<string> temp;
+	recursiveFindPalindromes(temp, words);
+
+	return true;
 }
 
 vector< vector<string> > FindPalindrome::toVector() const

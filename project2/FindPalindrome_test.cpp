@@ -24,9 +24,21 @@ TEST_CASE( "Bad Adding Vector", "[FindPalindrome]" )
 }
 */
 
+/*
 TEST_CASE( "Good Add", "[FindPalindrome]" )
 {
 	FindPalindrome b;
-	REQUIRE(b.add("kayak"));
-	REQUIRE(b.add("aaa"));
+	REQUIRE(b.add("taco"));
+	REQUIRE(b.number() == 0);
+	REQUIRE(b.add("cat"));
+	REQUIRE(b.number() == 1);
+}
+*/
+
+TEST_CASE( "Vector Add", "[FindPalindrome]" )
+{
+	FindPalindrome b;
+	std::vector<std::string> v = {"geese", "do", "god", "see"};
+	REQUIRE(b.add(v));
+	REQUIRE(b.number() == 1);
 }
