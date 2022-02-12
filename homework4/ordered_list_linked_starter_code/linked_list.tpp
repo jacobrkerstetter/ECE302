@@ -16,14 +16,9 @@ template <typename T>
 LinkedList<T>::LinkedList(const LinkedList<T>& x)
 {
   count = 0;
-  
-  // copy all elements into a new list
-  head = new Node<T>(x.getEntry(1));
 
-  for (int i = 2; i <= x.getLength(); i++) 
+  for (int i = 1; i <= x.getLength(); i++) 
     this->insert(i, x.getEntry(i));
-
-  //count = x.getLength();
 }
 
 template <typename T>
@@ -40,10 +35,7 @@ LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& x)
   // clear this list
   this->clear();
 
-  // create a copy of the head node and set a curr
-  head = new Node<T>(x.getEntry(1));
-
-  for (int i = 2; i <= x.getLength(); i++)
+  for (int i = 1; i <= x.getLength(); i++)
     this->insert(i, x.getEntry(i));
 
   return *this;
@@ -109,11 +101,21 @@ bool LinkedList<T>::remove(std::size_t position)
     count--;
     return true;
   }
+  else if (position == 1) { // case 3: deleting first node
+    Node<T>* temp = head;
+    head = head->getNext();
+
+    delete temp;
+    temp = nullptr;
+
+    count--;
+    return true;
+  }
 
   // traverse to node before deletion
   Node<T>* curr = head;
   int i = 1;
-  while (i < position && curr->getNext()) {  
+  while (i < position - 1 && curr->getNext()->getNext()) {  
     i++;
     curr = curr->getNext();
   }
@@ -122,8 +124,8 @@ bool LinkedList<T>::remove(std::size_t position)
 
   // check if node is last node
   if (position == count) {
-    curr->setNext(nullptr);
     delete curr->getNext();
+    curr->setNext(nullptr);
 
     return true;
   }
@@ -132,8 +134,8 @@ bool LinkedList<T>::remove(std::size_t position)
   Node<T>* temp = curr->getNext();
   curr->setNext(curr->getNext()->getNext());
 
-  temp->setNext(nullptr);
   delete temp;
+  temp->setNext(nullptr);
 
   return true;
 }
@@ -148,7 +150,7 @@ void LinkedList<T>::clear()
   // before you hit end of list...
   while (curr) {
     temp = curr->getNext(); // set temp to next node<T>
-    curr->setNext(nullptr); // set the next pointer of current node<T> to nullptr
+    curr->setNext(nullptr); // set next to nullptr
     delete curr; // free the memory the node<T> is taking up
     curr = temp; // advance curr
   }
@@ -170,6 +172,7 @@ T LinkedList<T>::getEntry(std::size_t position) const
     curr = curr->getNext();
     i++;
   }
+
   return curr->getItem();
 }
 

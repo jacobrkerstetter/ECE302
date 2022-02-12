@@ -6,8 +6,6 @@
 template class LinkedList<int>;
 template class LinkedList<std::string>;
 
-// remove item at position in the list using 1-based indexing
-
 TEST_CASE( "Copy Constructor", "[LinkedList]" ) {
     LinkedList<int> l;
 
@@ -83,6 +81,42 @@ TEST_CASE( "Make a list, set a node in valid position", "[LinkedList]" ) {
     REQUIRE(l.getEntry(2) == 17);
 }
 
+TEST_CASE( "Remove From Back, Test Invalids", "[LinkedList]" ) {
+    LinkedList<int> l;
+
+    l.insert(1, 3);
+    l.insert(2, 4);
+    l.insert(3, 5);
+
+    REQUIRE(!l.remove(-5));
+    REQUIRE(!l.remove(5));
+    REQUIRE(l.remove(3));
+    REQUIRE(l.getLength() == 2);
+    REQUIRE(l.getEntry(1) == 3);
+}
+
+TEST_CASE( "Remove From Middle", "[LinkedList]" ) {
+    LinkedList<int> l;
+
+    for (int i = 1; i < 21; i++)
+        l.insert(i, i);
+
+    REQUIRE(l.remove(11));
+    REQUIRE(l.getLength() == 19);
+}
+
+TEST_CASE( "Remove from Front", "[LinkedList]" ) {
+    LinkedList<int> l;
+
+    for (int i = 1; i < 21; i++)
+        l.insert(i, i);
+
+    for (int i = 0; i < 5; i++)
+        l.remove(1);
+
+    REQUIRE(l.getLength() == 15);
+}
+
 TEST_CASE( "IsEmpty", "[LinkedList]" ) {
     LinkedList<int> l;
 
@@ -91,8 +125,6 @@ TEST_CASE( "IsEmpty", "[LinkedList]" ) {
     REQUIRE(l.getLength() == 1);
     l.remove(1);
     REQUIRE(l.isEmpty());
-    std::cout << "is empty: ";
-    l.printList();
 }
 
 TEST_CASE( "Clear", "[LinkedList]" ) {
@@ -104,16 +136,15 @@ TEST_CASE( "Clear", "[LinkedList]" ) {
     REQUIRE(l.getLength() == 3);
     l.clear();
     REQUIRE(l.getLength() == 0);
-    std::cout << "clear: ";
-    l.printList();
 }
 
-TEST_CASE( "Make a list, set a node in invalid position", "[LinkedList]" ) {
+TEST_CASE( "Make a list, set/get a node in invalid position", "[LinkedList]" ) {
     LinkedList<std::string> l;
 
     l.insert(1, "hi");
     l.insert(2, "hello");
     l.insert(3, "hey");
+    l.setEntry(4, "afhf");
     l.getEntry(4);
 }
 
@@ -126,7 +157,4 @@ TEST_CASE( "Swap", "[LinkedList]" ) {
     }
 
     x.swap(x, y);
-
-    x.printList();
-    y.printList();
 }
