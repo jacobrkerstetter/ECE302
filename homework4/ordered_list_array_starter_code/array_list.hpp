@@ -41,6 +41,9 @@ public:
   // set the value of the item at position using 1-based indexing
   void setEntry(std::size_t position, const T& newValue);
 
+  // upsize the dynamic array
+  void upsize();
+
 private:
 
   T* items;

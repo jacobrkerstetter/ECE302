@@ -54,7 +54,6 @@ private:
 
   Node<T>* head;
   int count; 
-  Node<T>* getHeadPtr() const;
   
 };
 

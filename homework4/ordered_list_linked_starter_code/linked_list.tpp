@@ -1,7 +1,9 @@
 #include "linked_list.hpp"
 
 template <typename T>
-LinkedList<T>::LinkedList() : count(0) {}
+LinkedList<T>::LinkedList() : count(0) {
+  head = nullptr;
+}
 
 template <typename T>
 LinkedList<T>::~LinkedList()
@@ -13,19 +15,37 @@ LinkedList<T>::~LinkedList()
 template <typename T>
 LinkedList<T>::LinkedList(const LinkedList<T>& x)
 {
-  //TODO
+  count = 0;
+  
+  // copy all elements into a new list
+  head = new Node<T>(x.getEntry(1));
+
+  for (int i = 2; i <= x.getLength(); i++) 
+    this->insert(i, x.getEntry(i));
+
+  //count = x.getLength();
 }
 
 template <typename T>
 void LinkedList<T>::swap(LinkedList<T>& x, LinkedList<T>& y)
 {
-  // swap head pointers?
+  Node<T>* temp = x.head;
+  x.head = y.head;
+  y.head = temp;
 }
 
 template <typename T>
 LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& x)
 {
-  //TODO
+  // clear this list
+  this->clear();
+
+  // create a copy of the head node and set a curr
+  head = new Node<T>(x.getEntry(1));
+
+  for (int i = 2; i <= x.getLength(); i++)
+    this->insert(i, x.getEntry(i));
+
   return *this;
 }
 
@@ -45,7 +65,7 @@ template <typename T>
 bool LinkedList<T>::insert(std::size_t position, const T& item)
 {
   // check if position is valid (at end or less)
-  if (position > count + 1)
+  if (position > count + 1 || position < 1)
     return false;
   // check if this is the first insert
   else if (count == 0) {
@@ -81,7 +101,40 @@ bool LinkedList<T>::insert(std::size_t position, const T& item)
 template <typename T>
 bool LinkedList<T>::remove(std::size_t position)
 {
-  //TODO
+  if (position < 1 || position > count) // case 1: bad position input
+    return false;
+  else if (count == 1) { // case 2: head is only node
+    delete head;
+    head = nullptr;
+    count--;
+    return true;
+  }
+
+  // traverse to node before deletion
+  Node<T>* curr = head;
+  int i = 1;
+  while (i < position && curr->getNext()) {  
+    i++;
+    curr = curr->getNext();
+  }
+
+  count--;
+
+  // check if node is last node
+  if (position == count) {
+    curr->setNext(nullptr);
+    delete curr->getNext();
+
+    return true;
+  }
+
+  // skip ptr over delete node and delete it
+  Node<T>* temp = curr->getNext();
+  curr->setNext(curr->getNext()->getNext());
+
+  temp->setNext(nullptr);
+  delete temp;
+
   return true;
 }
 
@@ -101,29 +154,23 @@ void LinkedList<T>::clear()
   }
 
   head = nullptr;
+  count = 0;
 }
 
-// ASK ABOUT THIS ONE
 template <typename T>
 T LinkedList<T>::getEntry(std::size_t position) const
 {
-  // try to see if position is higher than the number of node<T>, cannot get
-  try {
-    if (position > count)
-      throw(position);
-    // if position is valid, loop through to that entry
-    int i = 1;
-    Node<T>* curr = head;
-    while (i != position) {
-      curr = curr->getNext();
-      i++;
-    }
-    return curr->getItem();
+  if (position > count)
+    return T();
+
+  // if position is valid, loop through to that entry
+  int i = 1;
+  Node<T>* curr = head;
+  while (i != position) {
+    curr = curr->getNext();
+    i++;
   }
-  catch (int position) {
-    std::cout << "Fatal Error: Position " << position << " is out of range! Exiting";
-    exit(EXIT_FAILURE);
-  }
+  return curr->getItem();
 }
 
 template <typename T>

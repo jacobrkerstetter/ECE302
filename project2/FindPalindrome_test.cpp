@@ -12,7 +12,6 @@ TEST_CASE( "Test FindPalindrome add a non-allowable word", "[FindPalindrome]" )
 	REQUIRE(!b.add("kayak1"));
 }
 
-/*
 TEST_CASE( "Bad Adding Vector", "[FindPalindrome]" )
 {
 	FindPalindrome b;
@@ -22,9 +21,7 @@ TEST_CASE( "Bad Adding Vector", "[FindPalindrome]" )
 	REQUIRE(!b.add("kayak1"));
 	REQUIRE(!b.add(badWords));
 }
-*/
 
-/*
 TEST_CASE( "Good Add", "[FindPalindrome]" )
 {
 	FindPalindrome b;
@@ -33,7 +30,6 @@ TEST_CASE( "Good Add", "[FindPalindrome]" )
 	REQUIRE(b.add("cat"));
 	REQUIRE(b.number() == 1);
 }
-*/
 
 TEST_CASE( "Vector Add", "[FindPalindrome]" )
 {
@@ -41,4 +37,11 @@ TEST_CASE( "Vector Add", "[FindPalindrome]" )
 	std::vector<std::string> v = {"geese", "do", "god", "see"};
 	REQUIRE(b.add(v));
 	REQUIRE(b.number() == 1);
+}
+
+TEST_CASE("cut test 1", "[FindPalindrome]") {
+	FindPalindrome f; 
+	std::vector<std::string> v = {"ababab"};
+	f.add(v);
+	REQUIRE(f.cutTest1(v));
 }

@@ -116,7 +116,7 @@ bool FindPalindrome::cutTest1(const vector<string> & stringVector)
 			}
 		}
 	
-	return (oddCount == 0 && charCount % 2 == 0) || (oddCount == 1 && charCount % 2 != 0);
+	return (oddCount % 2 == 0 && charCount % 2 == 0) || (oddCount == 1 && charCount % 2 != 0);
 }
 
 bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
