@@ -130,33 +130,34 @@ bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
 	string s1, s2;
 	unordered_map<char, int> map1, map2;
 
+	if (stringVector1.empty() || stringVector2.empty())
+		return true;
+
 	for (string s : stringVector1)
 		for (const char &c: s) {
-			map1[c]++; 
+			char temp = tolower(c);
+			map1[temp]++;
 			s1 += c;  
 			count1++;
 		}
 	for (string s : stringVector2)
 		for (const char &c : s) {
-			map2[c]++;
+			char temp = tolower(c);
+			map2[temp]++;
 			s2 += c;
 			count2++;
 		}
 
-	if (count1 < count2) {
-		for (char c : s1)
-			if (map1[c] > map2[c]) {
-				cout << c << endl;
-				return false;
-			}
-	}
-	else {
-		for (char c : s1) 
-			if (map2[c] > map1[c]) {
-				cout << c << ": " << map2[c] << ", " << map1[c] << endl;
-				return false;
-			}
-	}
+	if (count1 < count2)
+		for (char c : s1) {
+			char temp = tolower(c);
+			if (map1[temp] > map2[temp]) return false;
+		}
+	else 
+		for (char c : s1) {
+			char temp = tolower(c);
+			if (map2[temp] > map1[temp]) return false;
+		}
 	
 	return true;
 }

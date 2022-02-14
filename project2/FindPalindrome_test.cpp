@@ -4,7 +4,7 @@
 #include "FindPalindrome.hpp"
 
 // There should be at least one test per FindPalindrome method
-/*
+
 TEST_CASE( "Test FindPalindrome add a non-allowable word", "[FindPalindrome]" )
 {
 	INFO("Hint: add a single non-allowable word");
@@ -52,7 +52,6 @@ TEST_CASE("cut test 2", "[FindPalindrome]") {
 	REQUIRE(f.cutTest2(v, w)); 
 	REQUIRE(!f.cutTest2(v, z));
 }
-*/
 
 TEST_CASE("aaaaa test", "[FindPalindrome]") {
 	FindPalindrome f;
