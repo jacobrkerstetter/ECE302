@@ -19,6 +19,8 @@ algorithm
 -
 unordered_map
 -
+set
+-
 FindPalindrome.hpp
 /home/parallels/302Github/ECE302/project2/FindPalindrome.hpp
 

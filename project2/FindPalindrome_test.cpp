@@ -4,7 +4,7 @@
 #include "FindPalindrome.hpp"
 
 // There should be at least one test per FindPalindrome method
-
+/*
 TEST_CASE( "Test FindPalindrome add a non-allowable word", "[FindPalindrome]" )
 {
 	INFO("Hint: add a single non-allowable word");
@@ -25,9 +25,8 @@ TEST_CASE( "Bad Adding Vector", "[FindPalindrome]" )
 TEST_CASE( "Good Add", "[FindPalindrome]" )
 {
 	FindPalindrome b;
-	REQUIRE(b.add("taco"));
-	REQUIRE(b.number() == 0);
-	REQUIRE(b.add("cat"));
+	std::vector<std::string> w = {"taco", "cat"};
+	REQUIRE(b.add(w));
 	REQUIRE(b.number() == 1);
 }
 
@@ -44,4 +43,20 @@ TEST_CASE("cut test 1", "[FindPalindrome]") {
 	std::vector<std::string> v = {"ababab"};
 	f.add(v);
 	REQUIRE(f.cutTest1(v));
+}
+
+TEST_CASE("cut test 2", "[FindPalindrome]") {
+	FindPalindrome f;
+	std::vector<std::string> v = {"hi", "hello"}, w = {"hiel"}, z = {"llleo"};
+	f.add(v);
+	REQUIRE(f.cutTest2(v, w)); 
+	REQUIRE(!f.cutTest2(v, z));
+}
+*/
+
+TEST_CASE("aaaaa test", "[FindPalindrome]") {
+	FindPalindrome f;
+	std::vector<std::string> v = {"a", "aa", "AaA"};
+	f.add(v);
+	REQUIRE(f.number() == 6);
 }

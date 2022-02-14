@@ -4,6 +4,7 @@
 #include <locale> 
 #include <algorithm>
 #include <unordered_map>
+#include <set>
 #include "FindPalindrome.hpp"
 
 using namespace std;
@@ -32,8 +33,9 @@ void FindPalindrome::recursiveFindPalindromes(vector<string>
 	if (currentStringVector.empty()) {
 		std::string testWord;
 
-		for (std::string s : candidateStringVector)
+		for (string s : candidateStringVector)
 			testWord += s;
+
 		if (isPalindrome(testWord)) {
 			palindromes.push_back(candidateStringVector);
 			numPalin++;
@@ -41,14 +43,16 @@ void FindPalindrome::recursiveFindPalindromes(vector<string>
 		
 		return;
 	}
-	
+
+	if (!cutTest2(candidateStringVector, currentStringVector)) return;
+
 	// start for loop of recursion
 	for (int i = 0; i < currentStringVector.size(); i++) {
 
 		// edit the string vectors towards current string empty
 		candidateStringVector.push_back(currentStringVector[i]); // add the first element of the words vector to the candidate
 		currentStringVector.erase(currentStringVector.begin() + i); // remove the first element of the words vector
-		
+
 		// recurse
 		recursiveFindPalindromes(candidateStringVector, currentStringVector);
 
@@ -122,8 +126,39 @@ bool FindPalindrome::cutTest1(const vector<string> & stringVector)
 bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
                               const vector<string> & stringVector2)
 {
-	// TODO need to implement this...
-	return false;
+	int count1 = 0, count2 = 0;
+	string s1, s2;
+	unordered_map<char, int> map1, map2;
+
+	for (string s : stringVector1)
+		for (const char &c: s) {
+			map1[c]++; 
+			s1 += c;  
+			count1++;
+		}
+	for (string s : stringVector2)
+		for (const char &c : s) {
+			map2[c]++;
+			s2 += c;
+			count2++;
+		}
+
+	if (count1 < count2) {
+		for (char c : s1)
+			if (map1[c] > map2[c]) {
+				cout << c << endl;
+				return false;
+			}
+	}
+	else {
+		for (char c : s1) 
+			if (map2[c] > map1[c]) {
+				cout << c << ": " << map2[c] << ", " << map1[c] << endl;
+				return false;
+			}
+	}
+	
+	return true;
 }
 
 bool FindPalindrome::add(const string & value)
