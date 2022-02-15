@@ -40,9 +40,18 @@ TEST_CASE( "Vector Add", "[FindPalindrome]" )
 
 TEST_CASE("cut test 1", "[FindPalindrome]") {
 	FindPalindrome f; 
-	std::vector<std::string> v = {"ababab"};
+	std::vector<std::string> v = {"ababab"}, w = {"ababababc"};
+	REQUIRE(f.add(v));
+	REQUIRE(!f.cutTest1(v));
+	REQUIRE(f.cutTest1(w));
+}
+
+TEST_CASE("cut test 1 pass and fail", "[FindPalindrome]") {
+	FindPalindrome f; 
+	std::vector<std::string> v = {"ABCBA"}, w = {"ABCCDA"};
 	f.add(v);
 	REQUIRE(f.cutTest1(v));
+	REQUIRE(!f.cutTest1(w));
 }
 
 TEST_CASE("cut test 2", "[FindPalindrome]") {
@@ -80,4 +89,33 @@ TEST_CASE("Test Add Diff Case Vector Words", "[FindPalindrome]") {
 	std::vector<std::string> v = {"a", "aa", "AaA"}, w = {"happy", "monday", "AA"};
 	f.add(v);
 	REQUIRE(!f.add(w));
+}
+
+TEST_CASE("toVector", "[FindPalindrome]") {
+	FindPalindrome f;
+	std::vector<std::string> v = {"a", "aa", "AaA"};
+	f.add(v);
+	std::vector<std::vector<std::string>> palindromes = f.toVector();
+
+ 	//cout statements to check that the vector of palindromes is correct
+	 /*
+	for (std::vector<std::string> v : palindromes) {
+		for (std::string s : v)
+			std::cout << s << " ";
+		std::cout << std::endl;
+	}
+	*/
+	
+}
+
+TEST_CASE("clear", "[FindPalindrome]") {
+	FindPalindrome f;
+	std::vector<std::string> v = {"a", "aa", "AaA"};
+	f.add(v);
+	std::vector<std::vector<std::string>> palindromes;
+
+	f.clear();
+	palindromes = f.toVector();
+	REQUIRE(f.number() == 0);
+	REQUIRE(palindromes.empty());
 }

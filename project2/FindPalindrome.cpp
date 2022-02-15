@@ -81,7 +81,7 @@ bool FindPalindrome::isPalindrome(string currentString) const
 
 //------------------- PUBLIC CLASS METHODS -------------------------------------
 
-FindPalindrome::FindPalindrome() : numPalin(0) {}
+FindPalindrome::FindPalindrome() : numPalin(0) {} // set number = 0
 
 FindPalindrome::~FindPalindrome() {}
 
@@ -92,35 +92,27 @@ int FindPalindrome::number() const
 
 void FindPalindrome::clear()
 {
-	words.clear();
-	palindromes.clear();
-	numPalin = 0;
+	words.clear(); // clear words holding vector
+	palindromes.clear(); // clear all existing palindromes
+	numPalin = 0; // resets the number of palindromes in this instance
 }
 
 bool FindPalindrome::cutTest1(const vector<string> & stringVector)
 {
+	// initialize an odd count, character count, and hashmap of character to freqs.
 	int oddCount = 0;
 	int charCount = 0;
 	std::unordered_map<char, int> map;
 
-	for (int i = 0; i < stringVector.size(); i++)
-		for (int j = 0; j < stringVector[i].size(); j++) {
-			charCount++;
-			if (map.find(stringVector[i][j]) != map.end()) {
-				map.insert({stringVector[i][j], ++map[stringVector[i][j]]});
-				
-				if (map[stringVector[i][j]] % 2 != 0)
-					oddCount++;
-				else
-					oddCount--;
-			}
-			else {
-				map.insert({stringVector[i][j], 1});
-				oddCount++;
-			}
+	for (string s : stringVector)
+		for (const char &c : s) {
+			charCount++; // increment char count
+			map[tolower(c)]++; // increment freq
+			if (map[tolower(c)] % 2 != 0) oddCount++; // if odd, increment odd count
+			else if (map[tolower(c)] != 0) oddCount--; // if even but not 0 decrease odd count
 		}
-	
-	return (oddCount % 2 == 0 && charCount % 2 == 0) || (oddCount == 1 && charCount % 2 != 0);
+
+	return (oddCount == 0 && charCount % 2 == 0) || (oddCount == 1 && charCount % 2 != 0);
 }
 
 bool FindPalindrome::cutTest2(const vector<string> & stringVector1,

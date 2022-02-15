@@ -6,6 +6,24 @@
 
 #IncludeRegexTransform: 
 
+/home/parallels/302Github/ECE302/project2/FindPalindrome.cpp
+string
+-
+vector
+-
+iostream
+-
+locale
+-
+algorithm
+-
+unordered_map
+-
+set
+-
+FindPalindrome.hpp
+/home/parallels/302Github/ECE302/project2/FindPalindrome.hpp
+
 /home/parallels/302Github/ECE302/project2/FindPalindrome.hpp
 string
 -
