@@ -169,9 +169,13 @@ bool FindPalindrome::add(const string & value)
 		if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')))
 			return false;
 
-	// if word is already in words vector, return false
-	if (std::count(words.begin(), words.end(), value))
-		return false;
+	for (string w : words) {
+		string temp1 = w, temp2 = value;
+		convertToLowerCase(temp1);
+		convertToLowerCase(temp2);
+
+		if (temp1 == temp2) return false;
+	}
 	
 	// else, add word
 	words.push_back(value);
@@ -195,10 +199,14 @@ bool FindPalindrome::add(const vector<string> & stringVector)
 		for (char c : s)
 			if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')))
 				return false;
+		for (string w : words) {
+			string temp1 = w, temp2 = s;
+			convertToLowerCase(temp1);
+			convertToLowerCase(temp2);
 
-		if (std::count(words.begin(), words.end(), s)) 
-			return false;
-	
+			if (temp1 == temp2) return false;
+		}
+
 		words.push_back(s);
 	}
 

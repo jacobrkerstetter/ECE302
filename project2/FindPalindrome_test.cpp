@@ -59,3 +59,25 @@ TEST_CASE("aaaaa test", "[FindPalindrome]") {
 	f.add(v);
 	REQUIRE(f.number() == 6);
 }
+
+TEST_CASE("aaaaa test 2", "[FindPalindrome]") {
+	FindPalindrome f;
+	std::vector<std::string> v = {"a", "aa", "AaA"};
+	f.add(v);
+	REQUIRE(f.number() == 6);
+	f.add("aaaAA");
+	REQUIRE(f.number() == 24);
+}
+
+TEST_CASE("Test Add Diff Case Single Word", "[FindPalindrome]") {
+	FindPalindrome f;
+	f.add("aaa");
+	REQUIRE(!f.add("AAA"));
+}
+
+TEST_CASE("Test Add Diff Case Vector Words", "[FindPalindrome]") {
+	FindPalindrome f;
+	std::vector<std::string> v = {"a", "aa", "AaA"}, w = {"happy", "monday", "AA"};
+	f.add(v);
+	REQUIRE(!f.add(w));
+}
