@@ -46,28 +46,25 @@ void convert(string &postfix, string &prefix) {
 
   std::stack<string> s;
 
-  int len = postfix.size();
+  int len = postfix.size(); //length of expression
 
-  for(int i = 0; i < len; i++){
+  for(int i = 0; i < len; i++){ //reading from left to right
 
-    if(isoperator(postfix[i])){
+    if(isoperator(postfix[i])){ //checking if the symbol is an operator
+      //pop two operands from the stack
       std::string op1 = s.top();
       s.pop();
       std::string op2 = s.top();
       s.pop();
 
-      std::string tempString = postfix[i] + op1 + op2;
-      s.push(tempString);
+      s.push(postfix[i] + op1 + op2); //concatenate the prefix and two operands
     }else{
-      s.push(std::string(1, postfix[i]));
-    }
-    
+      s.push(std::string(1, postfix[i])); //if the symbol is an operand then push it onto the stack
+
+    } 
   }
 
-  prefix = "";
-  while(!s.empty()){
-    prefix += s.top();
-    s.pop();
-  }
+  prefix = s.top(); //setting prefix expression to the top of the stack
+  s.pop(); //clearing the stack
   
 }
