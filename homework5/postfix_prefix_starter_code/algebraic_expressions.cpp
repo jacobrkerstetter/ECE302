@@ -57,7 +57,7 @@ void convert(string &postfix, string &prefix) {
       std::string op2 = s.top();
       s.pop();
 
-      s.push(postfix[i] + op1 + op2); //concatenate the prefix and two operands
+      s.push(postfix[i] + op2 + op1); //concatenate the prefix and two operands
     }else{
       s.push(std::string(1, postfix[i])); //if the symbol is an operand then push it onto the stack
 
