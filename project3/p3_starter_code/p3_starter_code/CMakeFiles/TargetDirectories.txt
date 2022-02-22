@@ -1,0 +1,7 @@
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/CMakeFiles/edit_cache.dir
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/CMakeFiles/test.dir
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/CMakeFiles/submission.dir
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/CMakeFiles/rebuild_cache.dir
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/CMakeFiles/mainXMLParser.dir
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/CMakeFiles/mainStack.dir
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/CMakeFiles/XMLParser-tests.dir

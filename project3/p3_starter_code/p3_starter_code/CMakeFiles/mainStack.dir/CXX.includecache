@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/Node.cpp
+cstddef
+-
+Node.hpp
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/Node.hpp
+
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/Node.hpp
+Node.cpp
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/Node.cpp
+
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/Stack.cpp
+iostream
+-
+cstddef
+-
+Stack.hpp
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/Stack.hpp
+Node.hpp
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/Node.hpp
+
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/Stack.hpp
+stdexcept
+-
+Node.hpp
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/Node.hpp
+Stack.cpp
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/Stack.cpp
+
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/mainStack.cpp
+iostream
+-
+Stack.hpp
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/Stack.hpp
+

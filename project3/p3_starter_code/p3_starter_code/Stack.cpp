@@ -11,7 +11,7 @@
 template<class ItemType>
 Stack<ItemType>::Stack() 
 {
-	// initialize head and current size to defaults
+	// initialize headPtr and current size to defaults
 	headPtr = nullptr;
 	currentSize = 0;
 }  // end default constructor
@@ -19,9 +19,8 @@ Stack<ItemType>::Stack()
 template<class ItemType>
 Stack<ItemType>::~Stack()
 {
-	// clear stack and set head to null
+	// clear stack which also sets headPtr to null
 	clear();
-	headPtr = nullptr;
 }  // end destructor
 
 template<class ItemType>
@@ -42,34 +41,62 @@ template<class ItemType>
 bool Stack<ItemType>::push(const ItemType& newItem)
 {
 	// add a new item to stack
-	if (!head) { // if head is null
-		head = new Node(newItem); // create a new node for head
+	if (!headPtr) { // if headPtr is null
+		headPtr = new Node<ItemType>(newItem); // create a new node for headPtr
+		currentSize++;	// increment size
 		return true;
 	}
 
-	// keep doing insert at front
-	
+	// do insert at front and increment size
+	headPtr = new Node<ItemType>(newItem, headPtr);
+	currentSize++;
+	return true;
 	
 }  // end push
 
-// TODO: Implement the peek method here
 template<class ItemType>
 ItemType Stack<ItemType>::peek() const throw(logic_error)
 {
-	ItemType returnItem;
-	return returnItem;
+	// if there is no item at the top of the stack, throw logic error
+	if (isEmpty())
+		throw(logic_error("Peeking at Empty Stack"));
+	// if the stack has an item, return it
+	return headPtr->getItem();
 }  // end peek
 
-// TODO: Implement the pop method here
 template<class ItemType>
 bool Stack<ItemType>::pop() 
 {
-	return false;
+	// if stack is empty, return false, cannot pop
+	if (!headPtr)
+		return false;
+
+	// remove top item
+	// set temp to point to top element, advance headPtr, and deallocate temp
+	Node<ItemType>* temp = headPtr;
+	headPtr = headPtr->getNext();
+
+	temp->setNext(nullptr);
+	delete temp;
+	temp = nullptr;
+
+	// decrement size counter
+	currentSize--;
+	return true;
+
 }  // end pop
 
-// TODO: Implement the clear method here
 template<class ItemType>
 void Stack<ItemType>::clear()
 {
+	// traverse through stack, deleting each Node and setting headPtr to nullptr
+	Node<ItemType>* curr = headPtr, *temp;
+	while (curr) {
+		temp = curr;
+		curr = curr->getNext();
+		delete temp;
+	}
+
+	headPtr = nullptr;
 }  // end clear
 

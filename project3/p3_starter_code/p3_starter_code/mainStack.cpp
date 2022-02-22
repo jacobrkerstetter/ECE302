@@ -1,4 +1,4 @@
-//  Adapted from Frank M. Carrano and Timothy M. Henry.
+ //  Adapted from Frank M. Carrano and Timothy M. Henry.
 
 #include <iostream>
 #include "Stack.hpp"
