@@ -119,3 +119,4 @@ TEST_CASE("clear", "[FindPalindrome]") {
 	REQUIRE(f.number() == 0);
 	REQUIRE(palindromes.empty());
 }
+
