@@ -46,6 +46,7 @@ TEST_CASE("Testing insert", "[sorted linked list]") {
     lst.insert(c);
     ++c;
   }
+
   REQUIRE(lst.getLength() == 26);
 
   for (int i = 0; i < 26; ++i) {

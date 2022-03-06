@@ -40,16 +40,25 @@ std::size_t SortedLinkedList<T>::getLength()
 template <typename T>
 void SortedLinkedList<T>::insert(const T& item)
 {
-  std::cout << "entering insert";
+  /*
+  if (list.getLength() == 0) {
+    list.insert(1, item);
+    return;
+  }
+  else if (list.getLength() == 1) {
+    if (item > list.getEntry(1)) list.insert(2, item);
+    else list.insert(1, item);
+    return;
+  }
+  */
+
   int i = 0;
-  while (i < list.getLength() && list.getEntry(i+1) < list.getEntry(i)) {
-      std::cout << i << std::endl;
+  while (i < list.getLength() && item > list.getEntry(i+1)) {
+      std::cout << list.getEntry(i+1);
       i++;
   }
   
   LinkedList<T>::insert(i+1, item);
-  std::cout << "exiting insert";
-  list.printList();
 }
 
 template <typename T>

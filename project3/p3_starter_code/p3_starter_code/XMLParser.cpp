@@ -7,14 +7,19 @@
 #include <assert.h>
 #include "XMLParser.hpp"
 
-// TODO: Implement the constructor here
 XMLParser::XMLParser()
 {
+	// instantiate all pointers to new objects in the class
+	elementNameBag = new Bag<std::string>;
+	parseStack = new Stack<std::string>;
+
 }  // end default constructor
 
-// TODO: Implement the destructor here
 XMLParser::~XMLParser()
 {
+	// deallocate the dynamic memory
+	delete elementNameBag;
+	delete parseStack;
 }  // end destructor
 
 // TODO: Implement the tokenizeInputString method
@@ -36,9 +41,18 @@ bool XMLParser::parseTokenizedInput()
 	return false;
 }
 
-// TODO: Implement the clear method here
+// Method to clear the internal data structures
 void XMLParser::clear()
 {
+	// clear the stack
+	while (!parseStack->isEmpty())
+		parseStack->pop();
+	
+	// clear the bag
+	elementNameBag->clear();
+
+	// clear the vector
+	tokenizedInputVector.clear();
 }
 
 vector<TokenStruct> XMLParser::returnTokenizedInput() const
@@ -49,6 +63,9 @@ vector<TokenStruct> XMLParser::returnTokenizedInput() const
 // TODO: Implement the containsElementName method
 bool XMLParser::containsElementName(const std::string &inputString) const
 {
+	// return false if either of the methods returned false
+	if (!tokenized || !parsed) return false;
+
 	return false;
 }
 
