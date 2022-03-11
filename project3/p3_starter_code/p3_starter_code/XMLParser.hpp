@@ -25,7 +25,7 @@ private:
 	/** Bag to store the XML element names. Uses the book's Bag implementation. */
 	Bag<std::string>* elementNameBag;
 	/** Stack to store XML tag names while parsing. Uses your stack implementation. */
-	Stack<std::string>* parseStack;
+	Stack<TokenStruct>* parseStack;
 	/** Vector to store the tokenized input string and the token types */
 	std::vector<TokenStruct> tokenizedInputVector;
 	/** Booleans to store the outcome of the tokenizeInputString and
@@ -93,6 +93,7 @@ public:
 	void clear();
 	/** The class destructor. Must free all allocated memory. */
 	~XMLParser();
+	static std::string deleteAttributes(std::string inputString);
 }; // end XMLParser
 
 #endif
