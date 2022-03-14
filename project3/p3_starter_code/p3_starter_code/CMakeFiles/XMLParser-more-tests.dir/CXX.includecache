@@ -48,14 +48,6 @@ Node.hpp
 Stack.cpp
 /home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/Stack.cpp
 
-/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/XMLParser.cpp
-string
--
-assert.h
--
-XMLParser.hpp
-/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/XMLParser.hpp
-
 /home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/XMLParser.hpp
 string
 -
@@ -64,7 +56,7 @@ Bag.hpp
 Stack.hpp
 /home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/Stack.hpp
 
-/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/XMLParser_test.cpp
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/XMLParser_more_test.cpp
 iostream
 -
 catch.hpp

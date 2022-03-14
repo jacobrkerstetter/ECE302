@@ -52,5 +52,22 @@ int main () {
 	int number = myParser.frequencyElementName("note");
 	cout << endl << "contains 'note' element this many times = " << number << endl << endl;
 
+	// Create an instance of XMLParse
+	XMLParser myXMLParser;
+	string testString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Note src='gmail'>  <From>Tom</From> <To>Alice</To> </Note>";
+	success = myXMLParser.tokenizeInputString(testString);
+	std::vector<TokenStruct> result = { TokenStruct{StringTokenType::DECLARATION, std::string("xml version=\"1.0\" encoding=\"UTF-8\"")},
+								TokenStruct{StringTokenType::START_TAG, std::string("Note")},
+								TokenStruct{StringTokenType::START_TAG, std::string("From")},
+								TokenStruct{StringTokenType::CONTENT, std::string("Tom")},
+								TokenStruct{StringTokenType::END_TAG, std::string("From")},
+								TokenStruct{StringTokenType::START_TAG, std::string("To")},
+								TokenStruct{StringTokenType::CONTENT, std::string("Alice")},
+								TokenStruct{StringTokenType::END_TAG, std::string("To")},
+								TokenStruct{StringTokenType::END_TAG, std::string("Note")}};
+	std::vector<TokenStruct> output = myXMLParser.returnTokenizedInput();
+	for (int i = 0; i < result.size(); i++) 
+		cout << "result: " << result[i].tokenString << " output: " << output[i].tokenString << endl;
+
 	return 0;
 }

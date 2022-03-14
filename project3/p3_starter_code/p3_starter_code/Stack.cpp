@@ -89,14 +89,10 @@ bool Stack<ItemType>::pop()
 template<class ItemType>
 void Stack<ItemType>::clear()
 {
-	// traverse through stack, deleting each Node and setting headPtr to nullptr
-	Node<ItemType>* curr = headPtr, *temp;
-	while (curr) {
-		temp = curr;
-		curr = curr->getNext();
-		delete temp;
-	}
-
+	// pop the stack until empty
+	while (!isEmpty())
+		pop();
+		
 	headPtr = nullptr;
 }  // end clear
 

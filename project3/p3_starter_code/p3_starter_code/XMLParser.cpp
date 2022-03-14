@@ -39,16 +39,27 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 			if (inputString[i] == '?') { // declaration case
 				i++;
 				while (inputString[i] != '?') {	// loop to get all content
+					// check for nested tags
+					if (inputString[i] == '<') {
+						tokenized = false;
+						return false;
+					}
+
 					tag += inputString[i];
 					i++;
 				}
-				tag = deleteAttributes(tag); // delete attributes
 				
 				// create token and append to vector				
 				token.tokenType = DECLARATION;
 			}
 			else if (std::isalpha(inputString[i])) { // start or empty case
 				while (inputString[i] != '>' && inputString[i] != '/') {	// loop to get all content
+					// check for nested tags
+					if (inputString[i] == '<') {
+						tokenized = false;
+						return false;
+					}
+
 					tag += inputString[i];
 					i++;
 				}
@@ -67,10 +78,15 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 			else if (inputString[i] == '/') { // end case
 				i++;
 				while (inputString[i] != '>') {	// loop to get all content
+					// check for nested tags
+					if (inputString[i] == '<') {
+						tokenized = false;
+						return false;
+					}
+
 					tag += inputString[i];
 					i++;
 				}
-				tag = deleteAttributes(tag); // delete attributes
 				
 				// create token and append to vector				
 				token.tokenType = END_TAG;
@@ -79,6 +95,12 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 		else if (std::isalpha(inputString[i])) { // content case
 			// get all of the content from between tags
 			while (inputString[i] != '<') {
+				// check for nested tags
+				if (inputString[i] == '<') {
+					tokenized = false;
+					return false;
+				}
+
 				tag += inputString[i];
 				i++;
 			}
@@ -91,8 +113,9 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 		// if string is not empty, append it to vector and add element name to bag
 		if (!tag.empty()) {
 			token.tokenString = tag;
-			elementNameBag->add(token.tokenString);
 			tokenizedInputVector.push_back(token);
+			if (token.tokenType != 2)
+				elementNameBag->add(token.tokenString);
 		}
 	}
 
@@ -100,8 +123,21 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 	return true;
 }  // end
 
-// TODO: Implement a helper function to delete attributes from a START_TAG
-// or EMPTY_TAG string (you can change this...)
+// functions to check if the tags have valid characters
+bool XMLParser::checkValidChar(const std::string &tagName) {
+	for (const char c : invalidStarting)
+		if (tagName[0] == c)
+			return false;
+
+	for (const char c : invalidChars)
+		for (const char t : tagName)
+			if (t == c)
+				return false;
+
+	return true;
+}
+
+// function to delete attributes from tags
 std::string XMLParser::deleteAttributes(std::string input) {
 	std::string cleaned;
 
@@ -115,7 +151,6 @@ std::string XMLParser::deleteAttributes(std::string input) {
 	return cleaned;
 }
 
-// TODO: Implement the parseTokenizedInput method here
 bool XMLParser::parseTokenizedInput()
 {
 	// follow the steps of "check valid parenthesis" from leetcode
@@ -128,7 +163,7 @@ bool XMLParser::parseTokenizedInput()
 			parseStack->push(token);
 		// if end tag, check with top of stack
 		else if (token.tokenType == 2)
-			if (parseStack->peek().tokenType == 1)
+			if (parseStack->peek().tokenType == 1 && parseStack->peek().tokenString == token.tokenString)
 				parseStack->pop();
 			else {
 				parsed = false;

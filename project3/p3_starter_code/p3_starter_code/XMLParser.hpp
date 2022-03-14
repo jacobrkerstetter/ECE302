@@ -29,9 +29,11 @@ private:
 	/** Vector to store the tokenized input string and the token types */
 	std::vector<TokenStruct> tokenizedInputVector;
 	/** Booleans to store the outcome of the tokenizeInputString and
-	 *  parseTokenizedInput methods */
+	    parseTokenizedInput methods */
 	bool tokenized;
 	bool parsed;
+	char invalidChars[28] =  {'!','"','#','$','%','&','\'','(',')','*','+',',','/',';','<','=','>','?','@','[','\\',']','^','`','{','|','}','~'};
+	char invalidStarting[3] = {'.', '-', ','};
   
   // You can add or change the private fields.
 
@@ -48,6 +50,11 @@ public:
 		@param inputString  The input string.
 		@return  true if tokenization was successful, or false if not. */
 	bool tokenizeInputString(const std::string &inputString);
+	/** Scans a tag from the input string to determine whether all of the characters and the starting chracters of a tag are valid.
+	    @post If successful, the characters of the input string are valid.
+		@param tagName The tag name.
+		@return true if characters in input string are valid, or false if not. */
+	bool checkValidChar(const std::string &tagName);
 	/** Parses a valid tokenized string (stored internally after a successful call to tokenizeInputString)
 	    and returns true if the tokenized input is valid XML.  Valid XML satisfies the BPG discussed 
 		in the Project Description, where open braces are replaced with a start tag, 

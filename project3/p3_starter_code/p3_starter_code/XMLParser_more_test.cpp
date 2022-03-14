@@ -199,22 +199,3 @@ TEST_CASE( "Test XMLParser Final Handout-0", "[XMLParser]" )
 		REQUIRE(myXMLParser.frequencyElementName("color_swatch") == 15);
 }
 
-TEST_CASE ("Test Nested Tags", "[XMLParser]") {
-	// Create an instance of XMLParse
-	XMLParser myXMLParser;
-	string testString = "<test <test2> myattr='abcdef'>stuff<this_is_empty_tag/></test <test2>>";
-	bool success;
-	success = myXMLParser.tokenizeInputString(testString);
-
-	REQUIRE(!success);
-}
-
-TEST_CASE ("Test Invalid Characters", "[XMLParser]") {
-	// Create an instance of XMLParse
-	XMLParser myXMLParser;
-	string testString = "<-test myattr='abcdef'>stuff<this_is_empty_tag/></test>";
-	bool success;
-	success = myXMLParser.tokenizeInputString(testString);
-
-	REQUIRE(!success);
-}

@@ -64,3 +64,13 @@ Bag.hpp
 Stack.hpp
 /home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/Stack.hpp
 
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/mainXMLParser.cpp
+iostream
+-
+fstream
+-
+string
+-
+XMLParser.hpp
+/home/parallels/302Github/ECE302/project3/p3_starter_code/p3_starter_code/XMLParser.hpp
+
