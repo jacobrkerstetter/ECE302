@@ -32,7 +32,7 @@ private:
 	    parseTokenizedInput methods */
 	bool tokenized;
 	bool parsed;
-	char invalidChars[28] =  {'!','"','#','$','%','&','\'','(',')','*','+',',','/',';','<','=','>','?','@','[','\\',']','^','`','{','|','}','~'};
+	char invalidChars[28] =  {'!','\"','#','$','%','&','\'','(',')','*','+',',','/',';','<','=','>','?','@','[','\\',']','^','`','{','|','}','~'};
 	char invalidStarting[3] = {'.', '-', ','};
   
   // You can add or change the private fields.

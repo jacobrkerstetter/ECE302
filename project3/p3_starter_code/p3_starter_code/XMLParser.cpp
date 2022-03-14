@@ -25,17 +25,20 @@ XMLParser::~XMLParser()
 // TODO: Implement the tokenizeInputString method
 bool XMLParser::tokenizeInputString(const std::string &inputString)
 {
-	// loop through input string (DONE)
-	// create a token from TokenStruct (DONE)
-	// push_back to vector (DONE)
-	// if anything is invalid set tokenized to false, clear, and return false
-
 	for (int i = 0; i < inputString.size(); i++) {
 		std::string tag;
 		TokenStruct token;
 
 		if (inputString[i] == '<') {
 			i++;
+
+			// check for valid tag starting character
+			for (const char c : invalidStarting)
+				if (inputString[i] == c) {
+					tokenized == false;
+					return false;
+				}
+
 			if (inputString[i] == '?') { // declaration case
 				i++;
 				while (inputString[i] != '?') {	// loop to get all content
@@ -47,6 +50,12 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 
 					tag += inputString[i];
 					i++;
+				}
+
+				// check for invalid tag characters
+				if (!checkValidChar(deleteAttributes(tag))) {
+					tokenized = false;
+					return false;
 				}
 				
 				// create token and append to vector				
@@ -64,6 +73,12 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 					i++;
 				}
 				tag = deleteAttributes(tag); // delete attributes
+
+				// check for invalid tag characters
+				if (!checkValidChar(tag)) {
+					tokenized = false;
+					return false;
+				}
 				
 				// create token and append to vector
 				// check if empty or start tag
@@ -77,6 +92,14 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 			}
 			else if (inputString[i] == '/') { // end case
 				i++;
+
+				// check for valid tag starting character
+				for (const char c : invalidStarting)
+					if (inputString[i] == c) {
+						tokenized == false;
+						return false;
+					}
+
 				while (inputString[i] != '>') {	// loop to get all content
 					// check for nested tags
 					if (inputString[i] == '<') {
@@ -92,7 +115,7 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 				token.tokenType = END_TAG;
 			}
 		}
-		else if (std::isalpha(inputString[i])) { // content case
+		else if (!std::isspace(inputString[i]) && inputString[i] != '>') { // content case
 			// get all of the content from between tags
 			while (inputString[i] != '<') {
 				// check for nested tags
@@ -125,12 +148,8 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)
 
 // functions to check if the tags have valid characters
 bool XMLParser::checkValidChar(const std::string &tagName) {
-	for (const char c : invalidStarting)
-		if (tagName[0] == c)
-			return false;
-
-	for (const char c : invalidChars)
-		for (const char t : tagName)
+	for (const char t : tagName)
+		for (const char c : invalidChars)
 			if (t == c)
 				return false;
 

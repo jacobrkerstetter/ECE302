@@ -211,10 +211,20 @@ TEST_CASE ("Test Nested Tags", "[XMLParser]") {
 
 TEST_CASE ("Test Invalid Characters", "[XMLParser]") {
 	// Create an instance of XMLParse
-	XMLParser myXMLParser;
-	string testString = "<-test myattr='abcdef'>stuff<this_is_empty_tag/></test>";
-	bool success;
-	success = myXMLParser.tokenizeInputString(testString);
+	XMLParser p1, p2, p3, s1, s2, s3;
+	bool pb1, pb2, pb3, sb1, sb2, sb3;
+	pb1 = p1.tokenizeInputString("<te!st></te!st>");
+	pb2 = p2.tokenizeInputString("<test>$$$</test>");
+	REQUIRE(p2.returnTokenizedInput()[1].tokenString.compare("$$$") == 0);
+	pb3 = p3.tokenizeInputString("<te\'st>$$$</te)st>");
+	sb1 = s1.tokenizeInputString("<-test></test>");
+	sb2 = s2.tokenizeInputString("<test></.test>");
+	sb3 = s3.tokenizeInputString("<,test></,test>");
 
-	REQUIRE(!success);
+	REQUIRE(!pb1);
+	REQUIRE(pb2);
+	REQUIRE(!pb3);
+	REQUIRE(!sb1);
+	REQUIRE(!sb2);
+	REQUIRE(!sb3);
 }
