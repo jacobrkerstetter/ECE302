@@ -28,10 +28,11 @@ private:
 	Stack<TokenStruct>* parseStack;
 	/** Vector to store the tokenized input string and the token types */
 	std::vector<TokenStruct> tokenizedInputVector;
-	/** Booleans to store the outcome of the tokenizeInputString and
-	    parseTokenizedInput methods */
+	/** Booleans to store the outcome of the tokenizeInputString and parseTokenizedInput methods */
 	bool tokenized;
 	bool parsed;
+
+	/** Char Arrays to store the invalid characters for starting and within a tag */
 	char invalidChars[28] =  {'!','\"','#','$','%','&','\'','(',')','*','+',',','/',';','<','=','>','?','@','[','\\',']','^','`','{','|','}','~'};
 	char invalidStarting[3] = {'.', '-', ','};
   
