@@ -7,7 +7,6 @@ typedef SortedLinkedList<char> ListType;
 
 template class SortedLinkedList<int>;
 
-/* 
 TEST_CASE("Testing isEmpty", "[sorted linked list]") {
   ListType lst;
   REQUIRE(lst.isEmpty());
@@ -18,8 +17,7 @@ TEST_CASE("Testing isEmpty", "[sorted linked list]") {
   lst.removeAt(0);
   REQUIRE(lst.isEmpty());
 }
- */
-/*
+
 TEST_CASE("Testing getLength", "[sorted linked list]") {
   ListType lst;
   REQUIRE(lst.getLength() == 0);
@@ -36,7 +34,6 @@ TEST_CASE("Testing getLength", "[sorted linked list]") {
   lst.removeAt(0);
   REQUIRE(lst.getLength() == 0);
 }
-*/
 
 TEST_CASE("Testing insert", "[sorted linked list]") {
   ListType lst;
@@ -53,7 +50,7 @@ TEST_CASE("Testing insert", "[sorted linked list]") {
     REQUIRE(lst.getEntry(i) == 'a' + i);
   }
 }
-/*
+
 TEST_CASE("Testing remove", "[sorted linked list]") {
   ListType lst;
 
@@ -197,4 +194,3 @@ TEST_CASE("Testing exceptions", "[sorted linked list]") {
   CHECK_THROWS_AS(lst.removeAt(-1), std::range_error);
   CHECK_THROWS_AS(lst.getEntry(-1), std::range_error);
 }
-*/

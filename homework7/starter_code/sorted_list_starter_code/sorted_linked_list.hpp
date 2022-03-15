@@ -46,11 +46,6 @@ public:
   // get the position of the first occurance of item or negated position
   // where it would be inserted.
   long int getPosition(const T& newValue);
-
-private:
-  LinkedList<T> list;
-  int count;
-
 };
 
 #include "sorted_linked_list.tpp"

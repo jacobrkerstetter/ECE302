@@ -2,13 +2,12 @@
 #include <stdexcept>
 
 template <typename T>
-SortedLinkedList<T>::SortedLinkedList(): LinkedList<T>(), count(0)
+SortedLinkedList<T>::SortedLinkedList() : LinkedList<T>()
 {
 }
 
 template <typename T>
-SortedLinkedList<T>::SortedLinkedList(const SortedLinkedList<T> & x):
-  LinkedList<T>(x)
+SortedLinkedList<T>::SortedLinkedList(const SortedLinkedList<T> & x) : LinkedList<T>(x)
 {
 }
 
@@ -28,35 +27,21 @@ SortedLinkedList<T>::~SortedLinkedList()
 template <typename T>
 bool SortedLinkedList<T>::isEmpty()
 {
-  return LinkedList<T>::isEmpty();
+  return LinkedList<T>::isEmpty();  // call to parent
 }
 
 template <typename T>
 std::size_t SortedLinkedList<T>::getLength()
 {
-  return LinkedList<T>::getLength();
+  return LinkedList<T>::getLength();  // call to parent
 }
 
 template <typename T>
 void SortedLinkedList<T>::insert(const T& item)
 {
-  /*
-  if (list.getLength() == 0) {
-    list.insert(1, item);
-    return;
-  }
-  else if (list.getLength() == 1) {
-    if (item > list.getEntry(1)) list.insert(2, item);
-    else list.insert(1, item);
-    return;
-  }
-  */
-
   int i = 0;
-  while (i < list.getLength() && item > list.getEntry(i+1)) {
-      std::cout << list.getEntry(i+1);
+  while (i < LinkedList<T>::getLength() && item > LinkedList<T>::getEntry(i+1)) 
       i++;
-  }
   
   LinkedList<T>::insert(i+1, item);
 }
@@ -65,15 +50,6 @@ template <typename T>
 void SortedLinkedList<T>::remove(const T& item)
 {
   if(isEmpty()) throw std::range_error("empty list in remove");
-
-  int i = 0;
-  while (i < list.getLength() && list.getEntry(i+1) != item) {
-      std::cout << i;
-      i++;
-  }
-  
-  std::cout << list.getEntry(i+1);
-  LinkedList<T>::remove(i+1);
 }
 
 template <typename T>
@@ -81,19 +57,19 @@ void SortedLinkedList<T>::removeAt(std::size_t position)
 {
   if(isEmpty()) throw std::range_error("empty list in remove");
   
-  LinkedList<T>::remove(position);
+  LinkedList<T>::remove(position+1);  // call to parent
 }
 
 template <typename T>
 void SortedLinkedList<T>::clear()
 {
-  LinkedList<T>::clear();
+  LinkedList<T>::clear(); // call to parent
 }
 
 template <typename T>
 T SortedLinkedList<T>::getEntry(std::size_t position)
 {
-  return LinkedList<T>::getEntry(position+1);
+  return LinkedList<T>::getEntry(position+1); // call to parent
 }
 
 template <typename T>
