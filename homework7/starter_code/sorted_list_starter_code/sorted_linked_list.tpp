@@ -50,6 +50,17 @@ template <typename T>
 void SortedLinkedList<T>::remove(const T& item)
 {
   if(isEmpty()) throw std::range_error("empty list in remove");
+
+  int i = 1;
+  bool found = false;
+  while (!found && i < getLength()) {
+    if (LinkedList<T>::getEntry(i) == item) {
+      LinkedList<T>::remove(i);
+      found = true;
+    }
+
+    i++;
+  }
 }
 
 template <typename T>
@@ -75,6 +86,13 @@ T SortedLinkedList<T>::getEntry(std::size_t position)
 template <typename T>
 long int SortedLinkedList<T>::getPosition(const T& newValue)
 {
-  // todo
+  int i = 0;
+  while (LinkedList<T>::getEntry(i+1) < newValue)
+    i++;
+
+  if (LinkedList<T>::getEntry(i+1) == newValue)
+    return i;
+  else return -i;
+
   return 0;
 }

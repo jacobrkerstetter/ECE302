@@ -1,0 +1,4 @@
+/home/parallels/302Github/ECE302/homework7/starter_code/ring_buffer_starter_code/CMakeFiles/rebuild_cache.dir
+/home/parallels/302Github/ECE302/homework7/starter_code/ring_buffer_starter_code/CMakeFiles/edit_cache.dir
+/home/parallels/302Github/ECE302/homework7/starter_code/ring_buffer_starter_code/CMakeFiles/submission.dir
+/home/parallels/302Github/ECE302/homework7/starter_code/ring_buffer_starter_code/CMakeFiles/test_ring_buffer.dir
