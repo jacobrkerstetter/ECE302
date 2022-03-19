@@ -5,9 +5,14 @@
 
 template <typename T>
 class Deque: public AbstractDeque<T>{
-
-  // TODO
-  
+  public:
+    Deque(); // constructor
+    Deque(Deque& copy) // copy constructor
+    Deque operator=(Deque& other) // overloading = operator
+    ~Deque(); // destructor
+  private:
+    LinkedList<T> l;
+    int count;
 };
 
 #include "deque.tpp"
