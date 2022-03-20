@@ -50,13 +50,21 @@ template <typename T> std::size_t DynamicArrayList<T>::getLength(){
 }
 
 template <typename T> void DynamicArrayList<T>::insert(std::size_t position, const T& item){
-  T *temp;
+  if (size >= capacity) upsize();
+
+  ++size;
+  for (int i = size-1; i > position; --i)
+    data[i+1] = data[i];
+
+  data[position] = item;
 }
 
 template <typename T> void DynamicArrayList<T>::remove(std::size_t position){
+  if(position >= size) return;
 
-  for(int i = capacity; i < size; i++)
-    *(data + i) = *(data + i + 1);
+  --size;
+  for(std::size_t i = position; i < size; ++i)
+    data[i] = data[i+1];
 }
 
 template <typename T> void DynamicArrayList<T>::clear(){
@@ -65,11 +73,19 @@ template <typename T> void DynamicArrayList<T>::clear(){
 
 template <typename T> T DynamicArrayList<T>::getEntry(std::size_t position){
   if (position < size)
-    return T(position);
+    return data[position];
   else
     return T();
 }
 
 template <typename T> void DynamicArrayList<T>::setEntry(std::size_t position, const T& newValue){
-  *(data + position) = newValue;
+  if (position < size)
+    *(data + position) = newValue;
+}
+
+template <typename T> void DynamicArrayList<T>::upsize() {
+  capacity *= 2;
+  T* biggerArray = new T[capacity];
+  delete [] data;
+  data = biggerArray;
 }

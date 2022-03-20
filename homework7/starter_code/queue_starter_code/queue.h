@@ -43,7 +43,6 @@ private:
   L internal_list;
 };
 
-
 template <typename T, typename L>
 void Queue<T,L>::enqueue(const T& item)
 {

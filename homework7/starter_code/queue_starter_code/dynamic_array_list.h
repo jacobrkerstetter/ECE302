@@ -44,13 +44,14 @@ public:
   void setEntry(std::size_t position, const T& newValue);
 
 private:
-
+  // pointer to the array of T
   T* data;
   // number of elements that can be added before reallocation.
   std::size_t capacity;
   // Current allocated memory size.
   std::size_t size;
-  
+  // private method to upsize the array when necessary
+  void upsize();
 };
 
 #include "dynamic_array_list.tpp"

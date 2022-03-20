@@ -7,6 +7,14 @@
 
 #include <cassert>
 
+TEST_CASE("Testing ArrayList", "[dynamicArrayList]") {
+  DynamicArrayList<int> d;
+
+  REQUIRE(d.getLength() == 0);
+  d.insert(d.getLength(), 12);
+  REQUIRE(d.getEntry(0) == 12);
+}
+
 TEST_CASE("Testing 1", "[queue]") {
   // a queue, holding ints, using a DynamicArrayList as the container
   Queue<int, DynamicArrayList<int>> queue;
@@ -22,6 +30,7 @@ TEST_CASE("Testing 1", "[queue]") {
   REQUIRE(queue.peekFront() == 12);
 
   queue.dequeue();
+  REQUIRE(queue.peekFront() == -4);
   queue.dequeue();
   REQUIRE(queue.isEmpty());
 
