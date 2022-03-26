@@ -1,0 +1,11 @@
+/home/parallels/302Github/ECE302/project4/p4_starter_code/build/CMakeFiles/rebuild_cache.dir
+/home/parallels/302Github/ECE302/project4/p4_starter_code/build/CMakeFiles/edit_cache.dir
+/home/parallels/302Github/ECE302/project4/p4_starter_code/build/CMakeFiles/test.dir
+/home/parallels/302Github/ECE302/project4/p4_starter_code/build/CMakeFiles/submission.dir
+/home/parallels/302Github/ECE302/project4/p4_starter_code/build/CMakeFiles/pathfinder.dir
+/home/parallels/302Github/ECE302/project4/p4_starter_code/build/CMakeFiles/student-tests.dir
+/home/parallels/302Github/ECE302/project4/p4_starter_code/build/CMakeFiles/compare.dir
+/home/parallels/302Github/ECE302/project4/p4_starter_code/build/lib/CMakeFiles/rebuild_cache.dir
+/home/parallels/302Github/ECE302/project4/p4_starter_code/build/lib/CMakeFiles/edit_cache.dir
+/home/parallels/302Github/ECE302/project4/p4_starter_code/build/lib/CMakeFiles/test.dir
+/home/parallels/302Github/ECE302/project4/p4_starter_code/build/lib/CMakeFiles/image.dir
