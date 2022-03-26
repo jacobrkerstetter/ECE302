@@ -113,7 +113,32 @@ bool LinkedList<T>::insert(std::size_t position, const T& item)
 template <typename T>
 bool LinkedList<T>::remove(std::size_t position)
 {
-  //TODO
+  // check for valid position
+  if (position < 1 || position > count) return false;
+
+  Node<T>* temp = nullptr;
+  // remove from pos. 1
+  if (position == 1) {
+    temp = head
+    head = head -> getNext();
+  }
+  // remove from other positions
+  else {
+    Node<T>* curr = head;
+    int i = 1;
+    while (i != position - 1) {
+      ++i;
+      curr = curr -> getNext();
+    }
+    temp = curr -> getNext();
+    curr -> setNext(temp -> getNext());
+  }
+
+  // delete the node marked for deletion
+  temp -> setNext(nullptr);
+  delete temp;
+  temp = nullptr;
+
   return true;
 }
 
