@@ -6,7 +6,17 @@
 
 #IncludeRegexTransform: 
 
+/home/parallels/302Github/ECE302/project4/p4_starter_code/Node.cpp
+Node.hpp
+/home/parallels/302Github/ECE302/project4/p4_starter_code/Node.hpp
+
+/home/parallels/302Github/ECE302/project4/p4_starter_code/Node.hpp
+Node.cpp
+/home/parallels/302Github/ECE302/project4/p4_starter_code/Node.cpp
+
 /home/parallels/302Github/ECE302/project4/p4_starter_code/abstract_deque.hpp
+
+/home/parallels/302Github/ECE302/project4/p4_starter_code/abstract_list.hpp
 
 /home/parallels/302Github/ECE302/project4/p4_starter_code/catch.hpp
 sstream
@@ -241,12 +251,28 @@ assert.h
 /home/parallels/302Github/ECE302/project4/p4_starter_code/deque.hpp
 abstract_deque.hpp
 /home/parallels/302Github/ECE302/project4/p4_starter_code/abstract_deque.hpp
+linked_list.hpp
+/home/parallels/302Github/ECE302/project4/p4_starter_code/linked_list.hpp
 deque.tpp
 /home/parallels/302Github/ECE302/project4/p4_starter_code/deque.tpp
 
 /home/parallels/302Github/ECE302/project4/p4_starter_code/deque.tpp
 deque.hpp
 /home/parallels/302Github/ECE302/project4/p4_starter_code/deque.hpp
+
+/home/parallels/302Github/ECE302/project4/p4_starter_code/linked_list.hpp
+abstract_list.hpp
+/home/parallels/302Github/ECE302/project4/p4_starter_code/abstract_list.hpp
+Node.hpp
+/home/parallels/302Github/ECE302/project4/p4_starter_code/Node.hpp
+cstdlib
+-
+linked_list.tpp
+/home/parallels/302Github/ECE302/project4/p4_starter_code/linked_list.tpp
+
+/home/parallels/302Github/ECE302/project4/p4_starter_code/linked_list.tpp
+linked_list.hpp
+/home/parallels/302Github/ECE302/project4/p4_starter_code/linked_list.hpp
 
 /home/parallels/302Github/ECE302/project4/p4_starter_code/test_deque.cpp
 catch.hpp

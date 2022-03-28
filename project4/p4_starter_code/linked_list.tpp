@@ -23,6 +23,7 @@ LinkedList<T>::LinkedList(const LinkedList<T>& x)
   else {
     // make copy of first node
     head = new Node<T>(origHead -> getItem());
+    origHead = origHead -> getNext();
 
     // copy remaining nodes
     Node<T>* newPtr = head;
@@ -52,6 +53,7 @@ LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& x)
   else {
     // make copy of first node
     head = new Node<T>(origHead -> getItem());
+    origHead = origHead -> getNext();
 
     // copy remaining nodes
     Node<T>* newPtr = head;
@@ -138,6 +140,7 @@ bool LinkedList<T>::remove(std::size_t position)
   temp -> setNext(nullptr);
   delete temp;
   temp = nullptr;
+  --count;
 
   return true;
 }
