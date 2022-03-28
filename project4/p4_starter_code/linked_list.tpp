@@ -119,7 +119,7 @@ bool LinkedList<T>::remove(std::size_t position)
   Node<T>* temp = nullptr;
   // remove from pos. 1
   if (position == 1) {
-    temp = head
+    temp = head;
     head = head -> getNext();
   }
   // remove from other positions
