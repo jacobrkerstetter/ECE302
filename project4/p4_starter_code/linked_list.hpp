@@ -4,6 +4,7 @@
 #include "abstract_list.hpp"
 #include "Node.hpp"
 #include <cstdlib>
+#include <stdexcept>
 
 template <typename T>
 class LinkedList: public AbstractList<T>

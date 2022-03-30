@@ -17,6 +17,8 @@ Node.cpp
 /home/parallels/302Github/ECE302/project4/p4_starter_code/abstract_deque.hpp
 
 /home/parallels/302Github/ECE302/project4/p4_starter_code/abstract_list.hpp
+cstdlib
+-
 
 /home/parallels/302Github/ECE302/project4/p4_starter_code/catch.hpp
 sstream
@@ -266,6 +268,8 @@ abstract_list.hpp
 Node.hpp
 /home/parallels/302Github/ECE302/project4/p4_starter_code/Node.hpp
 cstdlib
+-
+stdexcept
 -
 linked_list.tpp
 /home/parallels/302Github/ECE302/project4/p4_starter_code/linked_list.tpp
