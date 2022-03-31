@@ -1,8 +1,8 @@
-student-tests 11 0.000304075
-test00 7 0.00117805
-test00-compare 5 0.00110869
-test01 3 0.142443
-test01-compare 1 0.213357
-test02 6 0.10375
-test02-compare 5 0.0422742
+student-tests 20 0.00047378
+test00 15 0.000376338
+test00-compare 14 0.000431996
+test01 11 0.0421195
+test01-compare 10 0.0227285
+test02 14 0.0399159
+test02-compare 14 0.0168797
 ---

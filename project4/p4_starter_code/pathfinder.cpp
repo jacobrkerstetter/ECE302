@@ -13,21 +13,40 @@ int main(int argc, char *argv[])
     return EXIT_FAILURE;
   }
 
-  // declare image object for maze and read it with image class
-  Image<Pixel> maze = readFromFile(argv[1]);
+  // declare image object for maze and read it with image class (catching errors in reading)
+  Image<Pixel> maze;
+  try {
+    maze = readFromFile(argv[1]);
+  }
+  catch (std::exception &ex) {
+    std::cerr << "Error: Failed to open image" << std::endl;
+    return EXIT_FAILURE;
+  }
+
   int height = maze.height();
   int width = maze.width();
+  int redCount = 0;
   bool solutionFound = false;
 
   // find where the red square is
   int startx, starty;
   for (int col = 0; col < height; col++)
-    for (int row = 0; row < width; row++) 
-      if (maze(col, row) == RED) {
+    for (int row = 0; row < width; row++)  {
+      if (maze(col,row) != RED && maze(col,row) != WHITE && maze(col,row) != BLACK) {
+        std::cerr << "Error: Invalid color present" << std::endl;
+        return EXIT_FAILURE;
+      }
+      else if (maze(col, row) == RED) {
         startx = col;
         starty = row;
-        break;
+        ++redCount;
       }
+    }
+    
+  if (redCount > 1) {
+    std::cerr << "Error: More than one start point" << std::endl;
+    return EXIT_FAILURE;
+  }
 
   // queue for the frontier and add initial square
   Deque<std::pair<int, int>> frontier;
@@ -39,14 +58,7 @@ int main(int argc, char *argv[])
   std::pair<int, int> location;
   int x, y;
 
-  while (true) {
-    // no solution was found
-    if (frontier.isEmpty()) {
-      std::cout << "No Solution Found" << std::endl;
-      writeToFile(maze, argv[2]);
-      return EXIT_SUCCESS;
-    }
-
+  while (!frontier.isEmpty()) {
     // pop next location to explore
     location = frontier.front();
     x = location.first;
@@ -89,32 +101,10 @@ int main(int argc, char *argv[])
   writeToFile(maze, argv[2]);
 
   // if solution found, check with solution image
-  if (solutionFound) {
-    try {
-      Image<Pixel> solution = readFromFile(argv[2]);
-
-      // check sizes of images align
-      if (maze.width() != solution.width() || maze.height() != solution.height()) {
-        std::cerr << "Image Sizes Differ";
-        return EXIT_FAILURE;
-      }
-      
-      // check that images are equal
-      for (int row = 0; row < width; row++)
-        for (int col = 0; col < height; col++)
-          if (maze(col,row) != solution(col,row)) {
-            std::cerr << "Image Contents Differ";
-            return EXIT_FAILURE;
-          }
-
-      std::cout << "Solution Found" << std::endl;
-      return EXIT_SUCCESS;
-    }
-    catch (std::exception &ex) {
-      std::cerr << ex.what() << std::endl;
-      return EXIT_FAILURE;
-    }
-  }
+  if (solutionFound)
+    std::cout << "Solution Found" << std::endl;
+  else
+    std::cout << "No Solution Found" << std::endl;
   
   return EXIT_SUCCESS;
 }

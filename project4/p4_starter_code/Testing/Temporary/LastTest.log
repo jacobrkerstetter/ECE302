@@ -1,20 +1,20 @@
-Start testing: Mar 30 19:10 EDT
+Start testing: Mar 31 13:23 EDT
 ----------------------------------------------------------
 1/7 Testing: student-tests
 1/7 Test: student-tests
 Command: "/home/parallels/302Github/ECE302/project4/p4_starter_code/student-tests"
 Directory: /home/parallels/302Github/ECE302/project4/p4_starter_code
-"student-tests" start time: Mar 30 19:10 EDT
+"student-tests" start time: Mar 31 13:23 EDT
 Output:
 ----------------------------------------------------------
 ===============================================================================
 All tests passed (30 assertions in 7 test cases)
 
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"student-tests" end time: Mar 30 19:10 EDT
+"student-tests" end time: Mar 31 13:23 EDT
 "student-tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -22,7 +22,7 @@ Test Passed.
 2/7 Test: test00
 Command: "/home/parallels/302Github/ECE302/project4/p4_starter_code/pathfinder" "/home/parallels/302Github/ECE302/project4/p4_starter_code/tests/maze00.png" "output00.png"
 Directory: /home/parallels/302Github/ECE302/project4/p4_starter_code
-"test00" start time: Mar 30 19:10 EDT
+"test00" start time: Mar 31 13:23 EDT
 Output:
 ----------------------------------------------------------
 Solution Found
@@ -30,7 +30,7 @@ Solution Found
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"test00" end time: Mar 30 19:10 EDT
+"test00" end time: Mar 31 13:23 EDT
 "test00" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -38,7 +38,7 @@ Test Passed.
 3/7 Test: test00-compare
 Command: "/home/parallels/302Github/ECE302/project4/p4_starter_code/compare" "/home/parallels/302Github/ECE302/project4/p4_starter_code/tests/output00.png" "output00.png"
 Directory: /home/parallels/302Github/ECE302/project4/p4_starter_code
-"test00-compare" start time: Mar 30 19:10 EDT
+"test00-compare" start time: Mar 31 13:23 EDT
 Output:
 ----------------------------------------------------------
 Images identical.
@@ -46,7 +46,7 @@ Images identical.
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"test00-compare" end time: Mar 30 19:10 EDT
+"test00-compare" end time: Mar 31 13:23 EDT
 "test00-compare" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -54,15 +54,15 @@ Test Passed.
 4/7 Test: test01
 Command: "/home/parallels/302Github/ECE302/project4/p4_starter_code/pathfinder" "/home/parallels/302Github/ECE302/project4/p4_starter_code/tests/maze01.png" "output01.png"
 Directory: /home/parallels/302Github/ECE302/project4/p4_starter_code
-"test01" start time: Mar 30 19:10 EDT
+"test01" start time: Mar 31 13:23 EDT
 Output:
 ----------------------------------------------------------
 No Solution Found
 <end of output>
-Test time =   0.43 sec
+Test time =   0.46 sec
 ----------------------------------------------------------
 Test Passed.
-"test01" end time: Mar 30 19:10 EDT
+"test01" end time: Mar 31 13:23 EDT
 "test01" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -70,15 +70,15 @@ Test Passed.
 5/7 Test: test01-compare
 Command: "/home/parallels/302Github/ECE302/project4/p4_starter_code/compare" "/home/parallels/302Github/ECE302/project4/p4_starter_code/tests/output01.png" "output01.png"
 Directory: /home/parallels/302Github/ECE302/project4/p4_starter_code
-"test01-compare" start time: Mar 30 19:10 EDT
+"test01-compare" start time: Mar 31 13:23 EDT
 Output:
 ----------------------------------------------------------
 Images identical.
 <end of output>
-Test time =   0.21 sec
+Test time =   0.23 sec
 ----------------------------------------------------------
 Test Passed.
-"test01-compare" end time: Mar 30 19:10 EDT
+"test01-compare" end time: Mar 31 13:23 EDT
 "test01-compare" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -86,15 +86,15 @@ Test Passed.
 6/7 Test: test02
 Command: "/home/parallels/302Github/ECE302/project4/p4_starter_code/pathfinder" "/home/parallels/302Github/ECE302/project4/p4_starter_code/tests/maze02.png" "output02.png"
 Directory: /home/parallels/302Github/ECE302/project4/p4_starter_code
-"test02" start time: Mar 30 19:10 EDT
+"test02" start time: Mar 31 13:23 EDT
 Output:
 ----------------------------------------------------------
 Solution Found
 <end of output>
-Test time =   0.62 sec
+Test time =   0.56 sec
 ----------------------------------------------------------
 Test Passed.
-"test02" end time: Mar 30 19:10 EDT
+"test02" end time: Mar 31 13:23 EDT
 "test02" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -102,16 +102,16 @@ Test Passed.
 7/7 Test: test02-compare
 Command: "/home/parallels/302Github/ECE302/project4/p4_starter_code/compare" "/home/parallels/302Github/ECE302/project4/p4_starter_code/tests/output02.png" "output02.png"
 Directory: /home/parallels/302Github/ECE302/project4/p4_starter_code
-"test02-compare" start time: Mar 30 19:10 EDT
+"test02-compare" start time: Mar 31 13:23 EDT
 Output:
 ----------------------------------------------------------
 Images identical.
 <end of output>
-Test time =   0.21 sec
+Test time =   0.24 sec
 ----------------------------------------------------------
 Test Passed.
-"test02-compare" end time: Mar 30 19:10 EDT
+"test02-compare" end time: Mar 31 13:23 EDT
 "test02-compare" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Mar 30 19:10 EDT
+End testing: Mar 31 13:23 EDT
