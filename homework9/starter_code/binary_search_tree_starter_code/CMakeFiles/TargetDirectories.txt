@@ -1,0 +1,5 @@
+/home/parallels/302Github/ECE302/homework9/starter_code/binary_search_tree_starter_code/CMakeFiles/rebuild_cache.dir
+/home/parallels/302Github/ECE302/homework9/starter_code/binary_search_tree_starter_code/CMakeFiles/submission.dir
+/home/parallels/302Github/ECE302/homework9/starter_code/binary_search_tree_starter_code/CMakeFiles/edit_cache.dir
+/home/parallels/302Github/ECE302/homework9/starter_code/binary_search_tree_starter_code/CMakeFiles/test.dir
+/home/parallels/302Github/ECE302/homework9/starter_code/binary_search_tree_starter_code/CMakeFiles/test_bst.dir
