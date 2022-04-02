@@ -96,3 +96,25 @@ TEST_CASE("Test Copy Assign", "[copy assign]") {
     
 }
 
+TEST_CASE("Test TreeSort", "[treesort]") {
+    TreeType bst;
+    int arr[] = {7, 16, 2, 3, 45, 31, 24, 11};
+    bst.treeSort(arr, 8);
+
+    for (int i = 0; i < 8; i++)
+        std::cout << arr[i] << " ";
+}
+
+TEST_CASE("Test TreeSort Empty", "[treesort empty]") {
+    TreeType bst;
+    int arr[0];
+
+    bst.treeSort(arr, 0);
+}
+
+TEST_CASE("Test TreeSort Dupes", "[treesort dupe]") {
+    TreeType bst;
+    int arr[0];
+
+    bst.treeSort(arr, 0);
+}

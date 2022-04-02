@@ -169,35 +169,84 @@ bool BinarySearchTree<KeyType, ItemType>::remove(KeyType key)
     Node<KeyType, ItemType> *parent, *curr;
     search(key, curr, parent);
 
-    if (!curr) return false; // key not found
+    if (curr -> key != key) return false; // key not found
 
     // case one thing in the tree
     if (!(root -> left) && !(root -> right)) {
         delete root;
-        root = 
-        return true;
+        root = nullptr;
     }
-
     // case, found deleted item at leaf
+    else if (!(curr -> left) && !(curr -> right)) {
+        // unlink from tree
+        if (parent -> left == curr) parent -> left = nullptr;
+        else parent -> right = nullptr;
 
+        // deallocate memory
+        delete curr;
+        curr = nullptr;
+    }
     // case, item to delete has only a right child
+    else if (curr -> right && !(curr -> left)) {
+        // attach parent to right subtree
+        if (parent)
+            if (parent -> right == curr) parent -> right = curr -> right;
+            else parent -> left = curr -> right;
+        else
+            root = curr -> right;
 
-    // case, item to delete has only a left child
-
-    // case, item to delete has two children
-    if (curr -> left && curr -> right) {
-        curr -> data = curr -> right -> data;
-        delete curr -> right;
+        // delete node and set right to null
         curr -> right = nullptr;
+        delete curr;
+        curr = nullptr;
+    }
+    // case, item to delete has only a left child
+    else if (curr -> left && !(curr -> right)) {
+        // attach parent to right subtree
+        if (parent)
+            if (parent -> right == curr) parent -> right = curr -> left;
+            else parent -> left = curr -> left;
+        else
+            root = curr -> left;
+
+        // delete node and set right to null
+        curr -> left = nullptr;
+        delete curr;
+        curr = nullptr;
+    }
+    // case, item to delete has two children
+    else if (curr -> left && curr -> right) {
+        // find inorder successor
+        Node<KeyType, ItemType> *successor, *sucParent;
+        inorder(curr, successor, sucParent);
+
+        // swap successor with curr key and item
+        KeyType tempKey;
+        ItemType tempData;
+
+        tempKey = successor -> key;
+        successor -> key = curr -> key;
+        curr -> key = tempKey;
+
+        tempData = successor -> data;
+        successor -> data = curr -> data;
+        curr -> data = tempData;
+
+        // delete successor
+        delete successor;
+        successor = nullptr;
     }
 
-    return true; // default should never get here
+    return true;
 }
 
 template <typename KeyType, typename ItemType>
 void BinarySearchTree<KeyType, ItemType>::inorder(Node<KeyType, ItemType> *curr,
                                                   Node<KeyType, ItemType> *&in, Node<KeyType, ItemType> *&parent)
 {
+    // move right once
+    curr = curr -> right;
+    
     // set in to curr
     if (!(curr->left))
     {
@@ -245,9 +294,25 @@ void BinarySearchTree<KeyType, ItemType>::search(KeyType key,
 template <typename KeyType, typename ItemType>
 void BinarySearchTree<KeyType, ItemType>::treeSort(ItemType arr[], int size)
 {
-    // TODO: check for duplicate items in the input array
+    // make sure tree is empty
+    destroy();
 
-    // TODO: use the tree to sort the array items
+    // insert all items into the tree while checking for dupes
+    for (int i = 0; i < size; i++)
+        if (!retrieve(arr[i], arr[i]))
+            insert(arr[i], arr[i]);
 
-    // TODO: overwrite input array values with sorted values
+    // overwrite input array values with sorted values
+    Node<KeyType, ItemType> *curr = root;
+    traverse(curr, arr, 0);
+}
+
+template <typename KeyType, typename ItemType>
+void BinarySearchTree<KeyType, ItemType>::traverse(Node<KeyType, ItemType>* curr, ItemType arr[], int i) {
+    if (curr) {
+        traverse(curr -> left, arr, i);
+        std::cout << curr -> key << std::endl;
+        arr[i++] = curr -> key;
+        traverse(curr -> right, arr, i);
+    }
 }
