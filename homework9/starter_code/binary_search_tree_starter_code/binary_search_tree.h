@@ -46,7 +46,7 @@ private:
 
     void search(KeyType key, Node<KeyType, ItemType>*& curr,
         Node<KeyType, ItemType>*& parent);
-    void traverse(Node<KeyType, ItemType>* curr, ItemType arr[], int size);
+    void traverse(Node<KeyType, ItemType>* curr, ItemType arr[], int &i);
 };
 
 #include "binary_search_tree.tpp"

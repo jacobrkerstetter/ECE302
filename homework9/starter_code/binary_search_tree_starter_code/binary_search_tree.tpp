@@ -301,17 +301,18 @@ void BinarySearchTree<KeyType, ItemType>::treeSort(ItemType arr[], int size)
     for (int i = 0; i < size; i++)
         if (!retrieve(arr[i], arr[i]))
             insert(arr[i], arr[i]);
+        else
+            return; // if theres a dupe do not sort
 
     // overwrite input array values with sorted values
-    Node<KeyType, ItemType> *curr = root;
-    traverse(curr, arr, 0);
+    int i = 0;
+    traverse(root, arr, i);
 }
 
 template <typename KeyType, typename ItemType>
-void BinarySearchTree<KeyType, ItemType>::traverse(Node<KeyType, ItemType>* curr, ItemType arr[], int i) {
+void BinarySearchTree<KeyType, ItemType>::traverse(Node<KeyType, ItemType>* curr, ItemType arr[], int &i) {
     if (curr) {
         traverse(curr -> left, arr, i);
-        std::cout << curr -> key << std::endl;
         arr[i++] = curr -> key;
         traverse(curr -> right, arr, i);
     }

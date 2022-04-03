@@ -101,8 +101,14 @@ TEST_CASE("Test TreeSort", "[treesort]") {
     int arr[] = {7, 16, 2, 3, 45, 31, 24, 11};
     bst.treeSort(arr, 8);
 
-    for (int i = 0; i < 8; i++)
-        std::cout << arr[i] << " ";
+    REQUIRE(arr[0] == 2);
+    REQUIRE(arr[1] == 3);
+    REQUIRE(arr[2] == 7);
+    REQUIRE(arr[3] == 11);
+    REQUIRE(arr[4] == 16);
+    REQUIRE(arr[5] == 24);
+    REQUIRE(arr[6] == 31);
+    REQUIRE(arr[7] == 45);
 }
 
 TEST_CASE("Test TreeSort Empty", "[treesort empty]") {
@@ -114,7 +120,13 @@ TEST_CASE("Test TreeSort Empty", "[treesort empty]") {
 
 TEST_CASE("Test TreeSort Dupes", "[treesort dupe]") {
     TreeType bst;
-    int arr[0];
+    int arr[5] = {1, 10, 5, 5, 7};
 
     bst.treeSort(arr, 0);
+
+    REQUIRE(arr[0] == 1);
+    REQUIRE(arr[1] == 10);
+    REQUIRE(arr[2] == 5);
+    REQUIRE(arr[3] == 5);
+    REQUIRE(arr[4] == 7);
 }
