@@ -30,27 +30,47 @@ private:
 template <typename T>
 bool HeapPriorityQueue<T>::isEmpty()
 {
-    //todo
-    return false;
+    return lst.isEmpty();
 }
 
 template <typename T>
 void HeapPriorityQueue<T>::add(const T& item)
 {
-    //todo
+    // insert new data at bottom of heap
+    lst.insert(lst.getLength(), item);
+
+    // if insert is first item, do base case
+    if (lst.getLength() == 1) 
+        return;
+
+    // trickle up algorithm
+    int idx = lst.getLength() - 1, parentIdx;
+    bool inPlace = false;
+    while (idx > 0 && !inPlace) {
+        parentIdx = (idx - 1) / 2;
+
+        std::cout << idx << " " << parentIdx << std::endl;
+        if (lst.getEntry(idx) < lst.getEntry(parentIdx)) 
+            inPlace = true;
+        else {
+            lst.setEntry(idx, lst.getEntry(parentIdx));
+            lst.setEntry(parentIdx, item);
+            idx = parentIdx;
+        }
+    }
 }
 
 template <typename T>
 void HeapPriorityQueue<T>::remove()
 {
-    //todo
+    // copy item from last item to root
+    lst.setEntry(0, lst.getEntry(lst.getLength() - 1));
 }
 
 template <typename T>
 T HeapPriorityQueue<T>::peek()
-{
-    //todo
-    return T();
+{   
+    return lst.getEntry(0);
 }
 
 
