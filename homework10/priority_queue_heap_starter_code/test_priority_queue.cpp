@@ -73,3 +73,29 @@ TEST_CASE("Test remove from empty", "[remove]") {
 
   pq.remove();
 }
+
+TEST_CASE("FULL TEST", "[remove]") {
+  HeapPriorityQueue<int>  pq;
+  REQUIRE(pq.isEmpty());
+
+  pq.add(100);
+  pq.add(50);
+  pq.add(150);
+
+  REQUIRE(pq.peek() == 150);
+  pq.remove();
+
+  REQUIRE(pq.peek() == 100);
+  pq.add(200);
+
+  REQUIRE(pq.peek() == 200);
+  pq.remove();
+
+  REQUIRE(pq.peek() == 100);
+  pq.remove();
+
+  REQUIRE(pq.peek() == 50);
+  pq.remove();
+
+  REQUIRE(pq.isEmpty());
+}
