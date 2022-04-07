@@ -21,6 +21,9 @@ public:
     
     // get the item with the highest priority from the queue
     T peek();
+
+    // recursive function to reorder heap after deletion
+    void heapify(int root);
     
 private:
     
@@ -49,7 +52,6 @@ void HeapPriorityQueue<T>::add(const T& item)
     while (idx > 0 && !inPlace) {
         parentIdx = (idx - 1) / 2;
 
-        std::cout << idx << " " << parentIdx << std::endl;
         if (lst.getEntry(idx) < lst.getEntry(parentIdx)) 
             inPlace = true;
         else {
@@ -62,9 +64,39 @@ void HeapPriorityQueue<T>::add(const T& item)
 
 template <typename T>
 void HeapPriorityQueue<T>::remove()
-{
-    // copy item from last item to root
+{   
+    // copy item from last item to root and delete last item (fill default value)
     lst.setEntry(0, lst.getEntry(lst.getLength() - 1));
+    lst.remove(lst.getLength() - 1);
+
+    heapify(0);
+}
+
+template <typename T>
+void HeapPriorityQueue<T>::heapify(int root) {
+    // check if root is a leaf node
+    if (((2*root) + 1 < lst.getLength()) && ((2*root) + 2 < lst.getLength())) {
+        // left/assumed larger child
+        int largeChild = (2*root) + 1;
+
+        // check if theres a right child
+        if ((2*root) + 2 < lst.getLength()) {
+            // right child
+            int rightChild = largeChild + 1;
+            // if right child is larger than left child, swap them
+            if (lst.getEntry(rightChild) > lst.getEntry(largeChild))
+                largeChild = rightChild;
+        }
+
+        // if root is smaller than the larger child, swap them and recurse to trickle down
+        if (lst.getEntry(root) < lst.getEntry(largeChild)) {
+            T temp = lst.getEntry(largeChild);
+            lst.setEntry(largeChild, lst.getEntry(root));
+            lst.setEntry(root, temp);
+
+            heapify(largeChild);
+        }
+    }
 }
 
 template <typename T>
@@ -72,6 +104,5 @@ T HeapPriorityQueue<T>::peek()
 {   
     return lst.getEntry(0);
 }
-
 
 #endif // _HEAP_PRIORITY_QUEUE_H_

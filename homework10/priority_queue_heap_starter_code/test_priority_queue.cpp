@@ -36,3 +36,40 @@ TEST_CASE("Test remove", "[remove]") {
   pq.remove();
   REQUIRE(pq.isEmpty());
 }
+
+TEST_CASE("Test all 1", "[remove]") {
+  HeapPriorityQueue<int>  pq;
+  pq.add(25);
+  pq.add(1);
+  pq.add(78);
+
+  pq.remove();
+  REQUIRE(pq.peek() == 25);
+
+  pq.add(100);
+  pq.add(55);
+  pq.add(0);
+  REQUIRE(pq.peek() == 100);
+
+  pq.remove();
+  REQUIRE(pq.peek() == 55);
+
+  pq.remove();
+  pq.remove();
+  pq.remove();
+  REQUIRE(pq.peek() == 0);
+
+  pq.remove();
+  REQUIRE(pq.isEmpty());
+}
+
+TEST_CASE("Test remove from empty", "[remove]") {
+  HeapPriorityQueue<int>  pq;
+  pq.add(25);
+  pq.add(100);
+
+  pq.remove();
+  REQUIRE(pq.peek() == 25);
+
+  pq.remove();
+}
