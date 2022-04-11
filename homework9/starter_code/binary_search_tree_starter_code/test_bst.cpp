@@ -72,6 +72,37 @@ TEST_CASE("Test Remove", "[remove]") {
     REQUIRE(bst1.isEmpty());
 }
 
+TEST_CASE("Test Remove 2", "[remove]") {
+    TreeType bst1;
+
+    bst1.insert(1, 1);
+    bst1.insert(2, 2);
+    bst1.insert(3, 3);
+    bst1.insert(4, 4);
+    bst1.insert(5, 5);
+
+    int item;
+
+    bst1.remove(1);
+    REQUIRE(!bst1.retrieve(1, item));
+
+    bst1.remove(5);
+    REQUIRE(!bst1.retrieve(5, item));
+
+    REQUIRE_FALSE(bst1.remove(15));
+
+    bst1.remove(4);
+    REQUIRE(!bst1.retrieve(4, item));
+
+    bst1.remove(3);
+    REQUIRE(!bst1.retrieve(3, item));
+
+    bst1.remove(2);
+    REQUIRE(!bst1.retrieve(2, item));
+
+    REQUIRE(bst1.isEmpty());
+}
+
 TEST_CASE("Test Copy Assign", "[copy assign]") {
     TreeType bst1;
 
