@@ -1,0 +1,6 @@
+/home/parallels/302Github/ECE302/project5/CMakeFiles/rebuild_cache.dir
+/home/parallels/302Github/ECE302/project5/CMakeFiles/edit_cache.dir
+/home/parallels/302Github/ECE302/project5/CMakeFiles/test.dir
+/home/parallels/302Github/ECE302/project5/CMakeFiles/submission.dir
+/home/parallels/302Github/ECE302/project5/CMakeFiles/test_solver.dir
+/home/parallels/302Github/ECE302/project5/CMakeFiles/test_frontier_queue.dir

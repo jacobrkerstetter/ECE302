@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/parallels/302Github/ECE302/project5/build",
+  "command": "/usr/bin/c++    -g   -std=gnu++11 -o CMakeFiles/test_solver.dir/test_solver.cpp.o -c /home/parallels/302Github/ECE302/project5/test_solver.cpp",
+  "file": "/home/parallels/302Github/ECE302/project5/test_solver.cpp"
+},
+{
+  "directory": "/home/parallels/302Github/ECE302/project5/build",
+  "command": "/usr/bin/c++    -g   -std=gnu++11 -o CMakeFiles/test_solver.dir/puzzle.cpp.o -c /home/parallels/302Github/ECE302/project5/puzzle.cpp",
+  "file": "/home/parallels/302Github/ECE302/project5/puzzle.cpp"
+},
+{
+  "directory": "/home/parallels/302Github/ECE302/project5/build",
+  "command": "/usr/bin/c++    -g   -std=gnu++11 -o CMakeFiles/test_solver.dir/puzzle_solver.cpp.o -c /home/parallels/302Github/ECE302/project5/puzzle_solver.cpp",
+  "file": "/home/parallels/302Github/ECE302/project5/puzzle_solver.cpp"
+},
+{
+  "directory": "/home/parallels/302Github/ECE302/project5/build",
+  "command": "/usr/bin/c++    -g   -std=gnu++11 -o CMakeFiles/test_frontier_queue.dir/test_frontier_queue.cpp.o -c /home/parallels/302Github/ECE302/project5/test_frontier_queue.cpp",
+  "file": "/home/parallels/302Github/ECE302/project5/test_frontier_queue.cpp"
+}
+]
