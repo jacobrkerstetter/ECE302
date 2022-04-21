@@ -109,3 +109,78 @@ TEST_CASE( "Test-3", "[PuzzleSolver]" ) {
     REQUIRE(found);
   }
 }
+
+TEST_CASE( "Test-4", "[PuzzleSolver]" ) {
+
+  Puzzle puzzle1, puzzle2;
+  REQUIRE(puzzle1.fromString("012458673"));
+  REQUIRE(puzzle2.fromString("012475863"));
+    
+  {
+    PuzzleSolver solver(puzzle1, puzzle2);
+    bool found;
+    std::size_t solution_cost;
+    std::tie(found, solution_cost) = solver.search();
+    
+    REQUIRE(found);
+  }
+
+  { // symmetric case
+    PuzzleSolver solver(puzzle2, puzzle1);
+    bool found;
+    std::size_t solution_cost;
+    std::tie(found, solution_cost) = solver.search();
+    
+    REQUIRE(found);
+  }
+}
+
+TEST_CASE( "Test-5", "[PuzzleSolver]" ) {
+
+  Puzzle puzzle1, puzzle2;
+  REQUIRE(puzzle1.fromString("023784615"));
+  REQUIRE(puzzle2.fromString("012783654"));
+    
+  {
+    PuzzleSolver solver(puzzle1, puzzle2);
+    bool found;
+    std::size_t solution_cost;
+    std::tie(found, solution_cost) = solver.search();
+    
+    REQUIRE(found);
+  }
+
+  { // symmetric case
+    PuzzleSolver solver(puzzle2, puzzle1);
+    bool found;
+    std::size_t solution_cost;
+    std::tie(found, solution_cost) = solver.search();
+    
+    REQUIRE(found);
+  }
+}
+
+TEST_CASE( "Test-6", "[PuzzleSolver]" ) {
+
+  Puzzle puzzle1, puzzle2;
+  REQUIRE(puzzle1.fromString("023751864"));
+  REQUIRE(puzzle2.fromString("012783654"));
+    
+  {
+    PuzzleSolver solver(puzzle1, puzzle2);
+    bool found;
+    std::size_t solution_cost;
+    std::tie(found, solution_cost) = solver.search();
+    
+    REQUIRE(found);
+  }
+
+  { // symmetric case
+    PuzzleSolver solver(puzzle2, puzzle1);
+    bool found;
+    std::size_t solution_cost;
+    std::tie(found, solution_cost) = solver.search();
+    
+    REQUIRE(found);
+  }
+}
